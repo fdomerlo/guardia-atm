@@ -870,7 +870,14 @@ const MUSCULOS_DOLOR = [
       'Arco superciliar y ceja'
     ],
     sintomasAsociados: 'Limitación de la apertura bucal (trismus moderado), dolor al apretar los dientes en céntrica.',
-    posicionEsquema: { x: 58, y: 56 },
+    posicionEsquema: { x: 44.4, y: 59.4 },
+    triggerPoint: { x: 355, y: 475, label: 'Masetero Superficial' },
+    zonasReferidas: [
+      { x: 325, y: 465, r: 26, label: 'Molares inferiores (falsa pulpitis)', icon: '🦷' },
+      { x: 325, y: 442, r: 22, label: 'Molares superiores y encía', icon: '🦷' },
+      { x: 264, y: 288, r: 22, label: 'Arco superciliar y ceja', icon: '⚡' },
+      { x: 352, y: 520, r: 22, label: 'Borde basal de mandíbula', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'molares-inf-sup',
     maniobraClinica: 'Palpar con dedo índice intraoral y pulgar extraoral comprimiendo las bandas tensas longitudinales.'
   },
@@ -885,7 +892,12 @@ const MUSCULOS_DOLOR = [
       'Tinnitus subjetivo unilateral'
     ],
     sintomasAsociados: 'Sensación de oído tapado o zumbido sin causa otorrinolaringológica.',
-    posicionEsquema: { x: 62, y: 46 },
+    posicionEsquema: { x: 49.4, y: 53.1 },
+    triggerPoint: { x: 395, y: 425, label: 'Masetero Profundo' },
+    zonasReferidas: [
+      { x: 440, y: 380, r: 30, label: 'Oído (otalgia refleja y tinnitus)', icon: '👂' },
+      { x: 415, y: 380, r: 24, label: 'Articulación Temporomandibular (ATM)', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'oido-atm',
     maniobraClinica: 'Palpación digital plana directamente sobre el tercio superior del masetero mientras el paciente entreabre la boca.'
   },
@@ -899,7 +911,12 @@ const MUSCULOS_DOLOR = [
       'Cefalea supraorbital y dolor retroocular frontal'
     ],
     sintomasAsociados: 'Cefalea opresiva frontal matutina por apretamiento nocturno.',
-    posicionEsquema: { x: 50, y: 28 },
+    posicionEsquema: { x: 40.6, y: 38.8 },
+    triggerPoint: { x: 325, y: 310, label: 'Temporal Anterior' },
+    zonasReferidas: [
+      { x: 245, y: 438, r: 24, label: 'Incisivos superiores (11, 12, 21, 22)', icon: '🦷' },
+      { x: 270, y: 280, r: 28, label: 'Cefalea supraorbital y retroocular', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'incisivos-sup',
     maniobraClinica: 'Comprimir firmemente contra la escama del hueso temporal con las yemas de los dedos.'
   },
@@ -913,7 +930,12 @@ const MUSCULOS_DOLOR = [
       'Sien y zona lateral craneal'
     ],
     sintomasAsociados: 'Falso dolor dental en premolares que no responde a pruebas térmicas pulpares.',
-    posicionEsquema: { x: 44, y: 25 },
+    posicionEsquema: { x: 48.8, y: 33.1 },
+    triggerPoint: { x: 390, y: 265, label: 'Temporal Medio' },
+    zonasReferidas: [
+      { x: 280, y: 440, r: 24, label: 'Caninos y premolares superiores', icon: '🦷' },
+      { x: 350, y: 250, r: 28, label: 'Sien y región lateral craneal', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'premolares-sup',
     maniobraClinica: 'Palpación plana ascendente siguiendo la dirección de las fibras musculares.'
   },
@@ -927,7 +949,12 @@ const MUSCULOS_DOLOR = [
       'Región retroauricular y parietal lateral'
     ],
     sintomasAsociados: 'Dolor de cabeza detrás de la oreja que empeora al masticar chicle o alimentos duros.',
-    posicionEsquema: { x: 34, y: 30 },
+    posicionEsquema: { x: 58.1, y: 36.3 },
+    triggerPoint: { x: 465, y: 290, label: 'Temporal Posterior' },
+    zonasReferidas: [
+      { x: 325, y: 442, r: 22, label: 'Molares superiores', icon: '🦷' },
+      { x: 475, y: 360, r: 28, label: 'Zona retroauricular y parietal', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'molares-sup-retro',
     maniobraClinica: 'Palpar detrás de la oreja mientras se le solicita al paciente que apriete los dientes.'
   },
@@ -942,7 +969,12 @@ const MUSCULOS_DOLOR = [
       'Faringe (sensación dolorosa o molestia al deglutir alimentos o saliva)'
     ],
     sintomasAsociados: 'Trismus marcado, molestia faríngea sin signos de infección amigdalina.',
-    posicionEsquema: { x: 55, y: 64 },
+    posicionEsquema: { x: 48.8, y: 63.8 },
+    triggerPoint: { x: 390, y: 510, label: 'Pterigoideo Medial' },
+    zonasReferidas: [
+      { x: 330, y: 500, r: 26, label: 'Faringe (deglución) y suelo de boca', icon: '👅' },
+      { x: 405, y: 460, r: 24, label: 'Zona retromandibular y cuello', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'faringe-suelo-boca',
     maniobraClinica: 'Enganchar el borde inferior del ángulo de la mandíbula con el dedo empujando hacia arriba y adentro.'
   },
@@ -956,7 +988,12 @@ const MUSCULOS_DOLOR = [
       'Seno maxilar y pómulo (simula sinusitis maxilar)'
     ],
     sintomasAsociados: 'Sensación de alteración oclusal aguda (contacto prematuro anterior o posterior) por espasmo que tracciona el disco/cóndilo.',
-    posicionEsquema: { x: 60, y: 40 },
+    posicionEsquema: { x: 46.9, y: 50.0 },
+    triggerPoint: { x: 375, y: 400, label: 'Pterigoideo Lateral' },
+    zonasReferidas: [
+      { x: 415, y: 380, r: 24, label: 'Zona articular de ATM anterior', icon: '⚡' },
+      { x: 300, y: 380, r: 28, label: 'Seno maxilar y pómulo (simula sinusitis)', icon: '👃' }
+    ],
     zonaReferenciaSvg: 'seno-maxilar-atm',
     maniobraClinica: 'Pedir al paciente que realice protrusión mandibular contra la resistencia firme de la mano del operador.'
   },
@@ -972,7 +1009,14 @@ const MUSCULOS_DOLOR = [
       'Oído y mareos posturales o desequilibrio'
     ],
     sintomasAsociados: 'Sensación de inestabilidad o mareo al girar el cuello, lagrimeo o coriza refleja.',
-    posicionEsquema: { x: 38, y: 70 },
+    posicionEsquema: { x: 56.3, y: 78.8 },
+    triggerPoint: { x: 450, y: 630, label: 'Esternocleidomastoideo' },
+    zonasReferidas: [
+      { x: 440, y: 115, r: 35, label: 'Vértice craneal (coronilla)', icon: '⚡' },
+      { x: 550, y: 320, r: 30, label: 'Región occipital', icon: '⚡' },
+      { x: 265, y: 285, r: 24, label: 'Ceja y frente', icon: '⚡' },
+      { x: 440, y: 380, r: 25, label: 'Oído (mareos y lagrimeo)', icon: '👂' }
+    ],
     zonaReferenciaSvg: 'vertice-occipital-mejilla',
     maniobraClinica: 'Solicitar giro de cabeza contralateral y pinzar el músculo entre índice y pulgar.'
   },
@@ -988,7 +1032,13 @@ const MUSCULOS_DOLOR = [
       'Sien (patrón clásico de "signo de interrogación" que culmina en la fosa temporal)'
     ],
     sintomasAsociados: 'Tensión extrema en hombros, agravado por estrés o mala postura en el trabajo.',
-    posicionEsquema: { x: 22, y: 82 },
+    posicionEsquema: { x: 76.3, y: 93.8 },
+    triggerPoint: { x: 610, y: 750, label: 'Trapecio Superior' },
+    zonasReferidas: [
+      { x: 520, y: 530, r: 30, label: 'Cuello posterolateral', icon: '⚡' },
+      { x: 465, y: 385, r: 25, label: 'Apófisis mastoides', icon: '⚡' },
+      { x: 360, y: 255, r: 26, label: 'Sien (patrón en "signo de interrogación")', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'signo-interrogacion-sien',
     maniobraClinica: 'Pinzar la masa muscular carnosa del borde superior del hombro.'
   }
@@ -3784,70 +3834,122 @@ class ReferralMapView {
         <!-- Anatomical Schema and Card -->
         <div class="map-visual-card">
           
-          <!-- Interactive SVG Head Diagram -->
-          <div class="svg-diagram-wrapper">
-            <svg class="head-anatomy-svg" viewBox="0 0 300 320" width="100%" height="auto" role="img" aria-label="Esquema anatómico de cabeza y puntos gatillo">
-              <defs>
-                <radialGradient id="triggerGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#DC2626" stop-opacity="1"/>
-                  <stop offset="60%" stop-color="#DC2626" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
-                </radialGradient>
-                <radialGradient id="referralGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#D97706" stop-opacity="0.8"/>
-                  <stop offset="70%" stop-color="#D97706" stop-opacity="0.4"/>
-                  <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
+          <!-- Interactive Radiographic Anatomical Map Container -->
+          <div class="anatomical-graphic-container">
+            <div class="anatomical-stage">
+              <!-- Base lateral head x-ray image -->
+              <img src="./assets/mapa-anatomico.jpg" 
+                   class="anatomical-xray-img" 
+                   alt="Radiografía anatómica lateral de cráneo y cuello"
+                   loading="eager">
+              
+              <!-- SVG Layer aligned on top of the 800x800 coordinate grid -->
+              <svg class="anatomical-overlay-svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Esquema radiográfico con puntos gatillo y dolor referido">
+                <defs>
+                  <!-- Radial gradient for referred pain halos (intense fiery amber/orange) -->
+                  <radialGradient id="referralHalos" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FF3D00" stop-opacity="0.95"/>
+                    <stop offset="35%" stop-color="#FF6D00" stop-opacity="0.75"/>
+                    <stop offset="70%" stop-color="#FF9100" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#FF3D00" stop-opacity="0"/>
+                  </radialGradient>
+                  
+                  <!-- Radial gradient for active trigger point beacon -->
+                  <radialGradient id="activeTriggerGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#EF4444" stop-opacity="0.95"/>
+                    <stop offset="50%" stop-color="#DC2626" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#991B1B" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
 
-              <!-- Stylized Lateral Head Silhouette -->
-              <path d="M 90 280 Q 80 230 75 190 Q 70 140 100 80 Q 130 30 180 30 Q 230 30 250 80 Q 265 115 255 140 L 265 160 L 250 170 L 260 200 L 235 220 L 210 240 Q 170 255 150 280 Z" 
-                    fill="#F1F5F9" stroke="#94A3B8" stroke-width="2.5" />
+                <!-- Dotted connector lines from Trigger Point to Referred Pain Zones -->
+                <g class="referral-connectors">
+                  ${currentMuscle.zonasReferidas.map((z) => `
+                    <line x1="${currentMuscle.triggerPoint.x}" y1="${currentMuscle.triggerPoint.y}"
+                          x2="${z.x}" y2="${z.y}"
+                          stroke="#FF7043" stroke-width="2.2" stroke-dasharray="5 5" stroke-opacity="0.7"
+                          class="connector-line" />
+                  `).join('')}
+                </g>
 
-              <!-- Ear Outline -->
-              <path d="M 125 150 C 115 140 115 180 125 190 C 130 185 130 155 125 150 Z" 
-                    fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
+                <!-- Glowing Referred Pain Zones (Halos) -->
+                <g class="referral-halos">
+                  ${currentMuscle.zonasReferidas.map((z) => `
+                    <g class="referral-zone-group" title="${z.label}">
+                      <!-- Outer pulsing glow -->
+                      <circle cx="${z.x}" cy="${z.y}" r="${z.r * 1.5}" fill="url(#referralHalos)" class="halo-pulse-anim" />
+                      <!-- Core bright spot -->
+                      <circle cx="${z.x}" cy="${z.y}" r="${z.r * 0.7}" fill="#FF5722" fill-opacity="0.85" />
+                      <circle cx="${z.x}" cy="${z.y}" r="3.5" fill="#FFFFFF" />
+                      <!-- Mini label shadow + text -->
+                      <text x="${z.x}" y="${z.y - z.r - 4}" 
+                            text-anchor="middle" 
+                            fill="#FFFFFF" 
+                            font-size="11" 
+                            font-weight="700" 
+                            class="zone-svg-caption">${z.label.split('(')[0].trim()}</text>
+                    </g>
+                  `).join('')}
+                </g>
 
-              <!-- Eye & Brow -->
-              <path d="M 225 110 Q 240 108 250 115" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round"/>
-              <ellipse cx="238" cy="120" rx="6" ry="3.5" fill="#64748B"/>
+                <!-- Inactive Trigger Points (Clickable cyan pins for quick muscle switching) -->
+                <g class="inactive-trigger-points">
+                  ${MUSCULOS_DOLOR.filter((m) => m.id !== currentMuscle.id).map((m) => `
+                    <g class="pin-trigger-unselected" data-muscle-id="${m.id}" role="button" tabindex="0" aria-label="Músculo ${m.nombre}">
+                      <circle cx="${m.triggerPoint.x}" cy="${m.triggerPoint.y}" r="16" fill="#00E5FF" fill-opacity="0.12" class="unselected-ping" />
+                      <circle cx="${m.triggerPoint.x}" cy="${m.triggerPoint.y}" r="6" fill="#00E5FF" stroke="#FFFFFF" stroke-width="1.8" />
+                    </g>
+                  `).join('')}
+                </g>
 
-              <!-- Mandibular Border & Angle Outline -->
-              <path d="M 140 180 L 150 235 Q 185 245 225 225" 
-                    fill="none" stroke="#64748B" stroke-width="2.5" stroke-dasharray="3 3"/>
+                <!-- Active Trigger Point (Selected muscle: High-contrast radar pulse + crosshair) -->
+                <g class="active-trigger-point" transform="translate(${currentMuscle.triggerPoint.x}, ${currentMuscle.triggerPoint.y})">
+                  <!-- Radar pulse waves -->
+                  <circle cx="0" cy="0" r="36" fill="url(#activeTriggerGlow)" class="trigger-radar-ring" />
+                  <circle cx="0" cy="0" r="18" fill="#DC2626" fill-opacity="0.35" stroke="#EF4444" stroke-width="2.5" class="trigger-beacon-ring" />
+                  <circle cx="0" cy="0" r="8" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5" />
+                  
+                  <!-- Crosshair mark -->
+                  <line x1="-14" y1="0" x2="-6" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="6" y1="0" x2="14" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="0" y1="-14" x2="0" y2="-6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="0" y1="6" x2="0" y2="14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
 
-              <!-- Zonas de Puntos Gatillo Dinámicas -->
-              <!-- Masetero -->
-              <ellipse cx="165" cy="210" rx="16" ry="24" fill="${this.selectedMuscleId.startsWith('masetero') ? '#006155' : '#E2E8F0'}" 
-                       stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId.startsWith('masetero') ? '0.4' : '0.1'}" />
+                  <!-- Label callout tag -->
+                  <g class="trigger-svg-label">
+                    <rect x="14" y="-15" width="${currentMuscle.nombre.length * 8 + 26}" height="28" rx="6" 
+                          fill="rgba(10, 20, 35, 0.88)" stroke="#EF4444" stroke-width="1.8" />
+                    <text x="24" y="4" fill="#FFFFFF" font-size="12" font-weight="800" font-family="system-ui, sans-serif">
+                      ✕ ${currentMuscle.nombre}
+                    </text>
+                  </g>
+                </g>
 
-              <!-- Temporal -->
-              <path d="M 130 120 Q 160 80 200 90 Q 220 110 205 145 Q 170 140 145 150 Z" 
-                    fill="${this.selectedMuscleId.startsWith('temporal') ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId.startsWith('temporal') ? '0.4' : '0.1'}" />
+              </svg>
+            </div>
 
-              <!-- Trapecio / Cuello -->
-              <path d="M 85 240 Q 100 270 120 295 L 80 295 Z" 
-                    fill="${this.selectedMuscleId === 'trapecio-superior' ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId === 'trapecio-superior' ? '0.4' : '0.1'}" />
+            <!-- Visual Legend Bar -->
+            <div class="anatomical-legend-bar">
+              <div class="legend-pill trigger-legend">
+                <span class="legend-dot red-pulse"></span>
+                <span class="legend-text"><strong>Punto Gatillo (Causa)</strong>: Palpación dolorosa</span>
+              </div>
+              <div class="legend-pill referral-legend">
+                <span class="legend-dot orange-pulse"></span>
+                <span class="legend-text"><strong>Dolor Referido (Síntoma)</strong>: Irradiación</span>
+              </div>
+            </div>
 
-              <!-- ECM -->
-              <path d="M 125 195 L 105 285 L 120 285 L 140 205 Z" 
-                    fill="${this.selectedMuscleId === 'esternocleidomastoideo' ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId === 'esternocleidomastoideo' ? '0.4' : '0.1'}" />
+            <!-- Referred zones list pills -->
+            <div class="referral-zones-pills">
+              <span class="rz-title">Irradia dolor hacia:</span>
+              <div class="rz-badges-flow">
+                ${currentMuscle.zonasReferidas.map((z) => `
+                  <span class="rz-pill">${z.icon || '📍'} ${z.label}</span>
+                `).join('')}
+              </div>
+            </div>
 
-              <!-- Trigger Point Indicator Circle -->
-              <circle cx="${(currentMuscle.posicionEsquema.x / 100) * 300}" 
-                      cy="${(currentMuscle.posicionEsquema.y / 100) * 320}" 
-                      r="16" fill="url(#triggerGlow)" />
-              <circle cx="${(currentMuscle.posicionEsquema.x / 100) * 300}" 
-                      cy="${(currentMuscle.posicionEsquema.y / 100) * 320}" 
-                      r="6" fill="#DC2626" stroke="#FFFFFF" stroke-width="2" />
-              <text x="${(currentMuscle.posicionEsquema.x / 100) * 300 + 10}" 
-                    y="${(currentMuscle.posicionEsquema.y / 100) * 320 - 10}" 
-                    font-size="11" font-weight="700" fill="#DC2626">✕ Trigger Point</text>
-            </svg>
-            <span class="svg-caption">✕ Punto Gatillo activo en <strong>${currentMuscle.nombre}</strong></span>
           </div>
 
           <!-- Detailed Info for Selected Muscle -->
@@ -3887,6 +3989,18 @@ class ReferralMapView {
       chip.addEventListener('click', () => {
         this.selectedMuscleId = chip.getAttribute('data-muscle-id');
         this.renderMuscleMode();
+      });
+    });
+
+    // Attach direct anatomical SVG pin clicks
+    container.querySelectorAll('.pin-trigger-unselected').forEach((pin) => {
+      pin.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const muscleId = pin.getAttribute('data-muscle-id');
+        if (muscleId) {
+          this.selectedMuscleId = muscleId;
+          this.renderMuscleMode();
+        }
       });
     });
   }

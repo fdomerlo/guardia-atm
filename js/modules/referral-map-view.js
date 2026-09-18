@@ -88,70 +88,122 @@ export class ReferralMapView {
         <!-- Anatomical Schema and Card -->
         <div class="map-visual-card">
           
-          <!-- Interactive SVG Head Diagram -->
-          <div class="svg-diagram-wrapper">
-            <svg class="head-anatomy-svg" viewBox="0 0 300 320" width="100%" height="auto" role="img" aria-label="Esquema anatómico de cabeza y puntos gatillo">
-              <defs>
-                <radialGradient id="triggerGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#DC2626" stop-opacity="1"/>
-                  <stop offset="60%" stop-color="#DC2626" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
-                </radialGradient>
-                <radialGradient id="referralGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#D97706" stop-opacity="0.8"/>
-                  <stop offset="70%" stop-color="#D97706" stop-opacity="0.4"/>
-                  <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
+          <!-- Interactive Radiographic Anatomical Map Container -->
+          <div class="anatomical-graphic-container">
+            <div class="anatomical-stage">
+              <!-- Base lateral head x-ray image -->
+              <img src="./assets/mapa-anatomico.jpg" 
+                   class="anatomical-xray-img" 
+                   alt="Radiografía anatómica lateral de cráneo y cuello"
+                   loading="eager">
+              
+              <!-- SVG Layer aligned on top of the 800x800 coordinate grid -->
+              <svg class="anatomical-overlay-svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Esquema radiográfico con puntos gatillo y dolor referido">
+                <defs>
+                  <!-- Radial gradient for referred pain halos (intense fiery amber/orange) -->
+                  <radialGradient id="referralHalos" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FF3D00" stop-opacity="0.95"/>
+                    <stop offset="35%" stop-color="#FF6D00" stop-opacity="0.75"/>
+                    <stop offset="70%" stop-color="#FF9100" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#FF3D00" stop-opacity="0"/>
+                  </radialGradient>
+                  
+                  <!-- Radial gradient for active trigger point beacon -->
+                  <radialGradient id="activeTriggerGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#EF4444" stop-opacity="0.95"/>
+                    <stop offset="50%" stop-color="#DC2626" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#991B1B" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
 
-              <!-- Stylized Lateral Head Silhouette -->
-              <path d="M 90 280 Q 80 230 75 190 Q 70 140 100 80 Q 130 30 180 30 Q 230 30 250 80 Q 265 115 255 140 L 265 160 L 250 170 L 260 200 L 235 220 L 210 240 Q 170 255 150 280 Z" 
-                    fill="#F1F5F9" stroke="#94A3B8" stroke-width="2.5" />
+                <!-- Dotted connector lines from Trigger Point to Referred Pain Zones -->
+                <g class="referral-connectors">
+                  ${currentMuscle.zonasReferidas.map((z) => `
+                    <line x1="${currentMuscle.triggerPoint.x}" y1="${currentMuscle.triggerPoint.y}"
+                          x2="${z.x}" y2="${z.y}"
+                          stroke="#FF7043" stroke-width="2.2" stroke-dasharray="5 5" stroke-opacity="0.7"
+                          class="connector-line" />
+                  `).join('')}
+                </g>
 
-              <!-- Ear Outline -->
-              <path d="M 125 150 C 115 140 115 180 125 190 C 130 185 130 155 125 150 Z" 
-                    fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
+                <!-- Glowing Referred Pain Zones (Halos) -->
+                <g class="referral-halos">
+                  ${currentMuscle.zonasReferidas.map((z) => `
+                    <g class="referral-zone-group" title="${z.label}">
+                      <!-- Outer pulsing glow -->
+                      <circle cx="${z.x}" cy="${z.y}" r="${z.r * 1.5}" fill="url(#referralHalos)" class="halo-pulse-anim" />
+                      <!-- Core bright spot -->
+                      <circle cx="${z.x}" cy="${z.y}" r="${z.r * 0.7}" fill="#FF5722" fill-opacity="0.85" />
+                      <circle cx="${z.x}" cy="${z.y}" r="3.5" fill="#FFFFFF" />
+                      <!-- Mini label shadow + text -->
+                      <text x="${z.x}" y="${z.y - z.r - 4}" 
+                            text-anchor="middle" 
+                            fill="#FFFFFF" 
+                            font-size="11" 
+                            font-weight="700" 
+                            class="zone-svg-caption">${z.label.split('(')[0].trim()}</text>
+                    </g>
+                  `).join('')}
+                </g>
 
-              <!-- Eye & Brow -->
-              <path d="M 225 110 Q 240 108 250 115" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round"/>
-              <ellipse cx="238" cy="120" rx="6" ry="3.5" fill="#64748B"/>
+                <!-- Inactive Trigger Points (Clickable cyan pins for quick muscle switching) -->
+                <g class="inactive-trigger-points">
+                  ${MUSCULOS_DOLOR.filter((m) => m.id !== currentMuscle.id).map((m) => `
+                    <g class="pin-trigger-unselected" data-muscle-id="${m.id}" role="button" tabindex="0" aria-label="Músculo ${m.nombre}">
+                      <circle cx="${m.triggerPoint.x}" cy="${m.triggerPoint.y}" r="16" fill="#00E5FF" fill-opacity="0.12" class="unselected-ping" />
+                      <circle cx="${m.triggerPoint.x}" cy="${m.triggerPoint.y}" r="6" fill="#00E5FF" stroke="#FFFFFF" stroke-width="1.8" />
+                    </g>
+                  `).join('')}
+                </g>
 
-              <!-- Mandibular Border & Angle Outline -->
-              <path d="M 140 180 L 150 235 Q 185 245 225 225" 
-                    fill="none" stroke="#64748B" stroke-width="2.5" stroke-dasharray="3 3"/>
+                <!-- Active Trigger Point (Selected muscle: High-contrast radar pulse + crosshair) -->
+                <g class="active-trigger-point" transform="translate(${currentMuscle.triggerPoint.x}, ${currentMuscle.triggerPoint.y})">
+                  <!-- Radar pulse waves -->
+                  <circle cx="0" cy="0" r="36" fill="url(#activeTriggerGlow)" class="trigger-radar-ring" />
+                  <circle cx="0" cy="0" r="18" fill="#DC2626" fill-opacity="0.35" stroke="#EF4444" stroke-width="2.5" class="trigger-beacon-ring" />
+                  <circle cx="0" cy="0" r="8" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5" />
+                  
+                  <!-- Crosshair mark -->
+                  <line x1="-14" y1="0" x2="-6" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="6" y1="0" x2="14" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="0" y1="-14" x2="0" y2="-6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <line x1="0" y1="6" x2="0" y2="14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
 
-              <!-- Zonas de Puntos Gatillo Dinámicas -->
-              <!-- Masetero -->
-              <ellipse cx="165" cy="210" rx="16" ry="24" fill="${this.selectedMuscleId.startsWith('masetero') ? '#006155' : '#E2E8F0'}" 
-                       stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId.startsWith('masetero') ? '0.4' : '0.1'}" />
+                  <!-- Label callout tag -->
+                  <g class="trigger-svg-label">
+                    <rect x="14" y="-15" width="${currentMuscle.nombre.length * 8 + 26}" height="28" rx="6" 
+                          fill="rgba(10, 20, 35, 0.88)" stroke="#EF4444" stroke-width="1.8" />
+                    <text x="24" y="4" fill="#FFFFFF" font-size="12" font-weight="800" font-family="system-ui, sans-serif">
+                      ✕ ${currentMuscle.nombre}
+                    </text>
+                  </g>
+                </g>
 
-              <!-- Temporal -->
-              <path d="M 130 120 Q 160 80 200 90 Q 220 110 205 145 Q 170 140 145 150 Z" 
-                    fill="${this.selectedMuscleId.startsWith('temporal') ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId.startsWith('temporal') ? '0.4' : '0.1'}" />
+              </svg>
+            </div>
 
-              <!-- Trapecio / Cuello -->
-              <path d="M 85 240 Q 100 270 120 295 L 80 295 Z" 
-                    fill="${this.selectedMuscleId === 'trapecio-superior' ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId === 'trapecio-superior' ? '0.4' : '0.1'}" />
+            <!-- Visual Legend Bar -->
+            <div class="anatomical-legend-bar">
+              <div class="legend-pill trigger-legend">
+                <span class="legend-dot red-pulse"></span>
+                <span class="legend-text"><strong>Punto Gatillo (Causa)</strong>: Palpación dolorosa</span>
+              </div>
+              <div class="legend-pill referral-legend">
+                <span class="legend-dot orange-pulse"></span>
+                <span class="legend-text"><strong>Dolor Referido (Síntoma)</strong>: Irradiación</span>
+              </div>
+            </div>
 
-              <!-- ECM -->
-              <path d="M 125 195 L 105 285 L 120 285 L 140 205 Z" 
-                    fill="${this.selectedMuscleId === 'esternocleidomastoideo' ? '#006155' : '#E2E8F0'}" 
-                    stroke="#006155" stroke-width="2" fill-opacity="${this.selectedMuscleId === 'esternocleidomastoideo' ? '0.4' : '0.1'}" />
+            <!-- Referred zones list pills -->
+            <div class="referral-zones-pills">
+              <span class="rz-title">Irradia dolor hacia:</span>
+              <div class="rz-badges-flow">
+                ${currentMuscle.zonasReferidas.map((z) => `
+                  <span class="rz-pill">${z.icon || '📍'} ${z.label}</span>
+                `).join('')}
+              </div>
+            </div>
 
-              <!-- Trigger Point Indicator Circle -->
-              <circle cx="${(currentMuscle.posicionEsquema.x / 100) * 300}" 
-                      cy="${(currentMuscle.posicionEsquema.y / 100) * 320}" 
-                      r="16" fill="url(#triggerGlow)" />
-              <circle cx="${(currentMuscle.posicionEsquema.x / 100) * 300}" 
-                      cy="${(currentMuscle.posicionEsquema.y / 100) * 320}" 
-                      r="6" fill="#DC2626" stroke="#FFFFFF" stroke-width="2" />
-              <text x="${(currentMuscle.posicionEsquema.x / 100) * 300 + 10}" 
-                    y="${(currentMuscle.posicionEsquema.y / 100) * 320 - 10}" 
-                    font-size="11" font-weight="700" fill="#DC2626">✕ Trigger Point</text>
-            </svg>
-            <span class="svg-caption">✕ Punto Gatillo activo en <strong>${currentMuscle.nombre}</strong></span>
           </div>
 
           <!-- Detailed Info for Selected Muscle -->
@@ -191,6 +243,18 @@ export class ReferralMapView {
       chip.addEventListener('click', () => {
         this.selectedMuscleId = chip.getAttribute('data-muscle-id');
         this.renderMuscleMode();
+      });
+    });
+
+    // Attach direct anatomical SVG pin clicks
+    container.querySelectorAll('.pin-trigger-unselected').forEach((pin) => {
+      pin.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const muscleId = pin.getAttribute('data-muscle-id');
+        if (muscleId) {
+          this.selectedMuscleId = muscleId;
+          this.renderMuscleMode();
+        }
       });
     });
   }

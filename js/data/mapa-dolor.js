@@ -16,7 +16,14 @@ export const MUSCULOS_DOLOR = [
       'Arco superciliar y ceja'
     ],
     sintomasAsociados: 'Limitación de la apertura bucal (trismus moderado), dolor al apretar los dientes en céntrica.',
-    posicionEsquema: { x: 58, y: 56 },
+    posicionEsquema: { x: 44.4, y: 59.4 },
+    triggerPoint: { x: 355, y: 475, label: 'Masetero Superficial' },
+    zonasReferidas: [
+      { x: 325, y: 465, r: 26, label: 'Molares inferiores (falsa pulpitis)', icon: '🦷' },
+      { x: 325, y: 442, r: 22, label: 'Molares superiores y encía', icon: '🦷' },
+      { x: 264, y: 288, r: 22, label: 'Arco superciliar y ceja', icon: '⚡' },
+      { x: 352, y: 520, r: 22, label: 'Borde basal de mandíbula', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'molares-inf-sup',
     maniobraClinica: 'Palpar con dedo índice intraoral y pulgar extraoral comprimiendo las bandas tensas longitudinales.'
   },
@@ -31,7 +38,12 @@ export const MUSCULOS_DOLOR = [
       'Tinnitus subjetivo unilateral'
     ],
     sintomasAsociados: 'Sensación de oído tapado o zumbido sin causa otorrinolaringológica.',
-    posicionEsquema: { x: 62, y: 46 },
+    posicionEsquema: { x: 49.4, y: 53.1 },
+    triggerPoint: { x: 395, y: 425, label: 'Masetero Profundo' },
+    zonasReferidas: [
+      { x: 440, y: 380, r: 30, label: 'Oído (otalgia refleja y tinnitus)', icon: '👂' },
+      { x: 415, y: 380, r: 24, label: 'Articulación Temporomandibular (ATM)', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'oido-atm',
     maniobraClinica: 'Palpación digital plana directamente sobre el tercio superior del masetero mientras el paciente entreabre la boca.'
   },
@@ -45,7 +57,12 @@ export const MUSCULOS_DOLOR = [
       'Cefalea supraorbital y dolor retroocular frontal'
     ],
     sintomasAsociados: 'Cefalea opresiva frontal matutina por apretamiento nocturno.',
-    posicionEsquema: { x: 50, y: 28 },
+    posicionEsquema: { x: 40.6, y: 38.8 },
+    triggerPoint: { x: 325, y: 310, label: 'Temporal Anterior' },
+    zonasReferidas: [
+      { x: 245, y: 438, r: 24, label: 'Incisivos superiores (11, 12, 21, 22)', icon: '🦷' },
+      { x: 270, y: 280, r: 28, label: 'Cefalea supraorbital y retroocular', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'incisivos-sup',
     maniobraClinica: 'Comprimir firmemente contra la escama del hueso temporal con las yemas de los dedos.'
   },
@@ -59,7 +76,12 @@ export const MUSCULOS_DOLOR = [
       'Sien y zona lateral craneal'
     ],
     sintomasAsociados: 'Falso dolor dental en premolares que no responde a pruebas térmicas pulpares.',
-    posicionEsquema: { x: 44, y: 25 },
+    posicionEsquema: { x: 48.8, y: 33.1 },
+    triggerPoint: { x: 390, y: 265, label: 'Temporal Medio' },
+    zonasReferidas: [
+      { x: 280, y: 440, r: 24, label: 'Caninos y premolares superiores', icon: '🦷' },
+      { x: 350, y: 250, r: 28, label: 'Sien y región lateral craneal', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'premolares-sup',
     maniobraClinica: 'Palpación plana ascendente siguiendo la dirección de las fibras musculares.'
   },
@@ -73,7 +95,12 @@ export const MUSCULOS_DOLOR = [
       'Región retroauricular y parietal lateral'
     ],
     sintomasAsociados: 'Dolor de cabeza detrás de la oreja que empeora al masticar chicle o alimentos duros.',
-    posicionEsquema: { x: 34, y: 30 },
+    posicionEsquema: { x: 58.1, y: 36.3 },
+    triggerPoint: { x: 465, y: 290, label: 'Temporal Posterior' },
+    zonasReferidas: [
+      { x: 325, y: 442, r: 22, label: 'Molares superiores', icon: '🦷' },
+      { x: 475, y: 360, r: 28, label: 'Zona retroauricular y parietal', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'molares-sup-retro',
     maniobraClinica: 'Palpar detrás de la oreja mientras se le solicita al paciente que apriete los dientes.'
   },
@@ -88,7 +115,12 @@ export const MUSCULOS_DOLOR = [
       'Faringe (sensación dolorosa o molestia al deglutir alimentos o saliva)'
     ],
     sintomasAsociados: 'Trismus marcado, molestia faríngea sin signos de infección amigdalina.',
-    posicionEsquema: { x: 55, y: 64 },
+    posicionEsquema: { x: 48.8, y: 63.8 },
+    triggerPoint: { x: 390, y: 510, label: 'Pterigoideo Medial' },
+    zonasReferidas: [
+      { x: 330, y: 500, r: 26, label: 'Faringe (deglución) y suelo de boca', icon: '👅' },
+      { x: 405, y: 460, r: 24, label: 'Zona retromandibular y cuello', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'faringe-suelo-boca',
     maniobraClinica: 'Enganchar el borde inferior del ángulo de la mandíbula con el dedo empujando hacia arriba y adentro.'
   },
@@ -102,7 +134,12 @@ export const MUSCULOS_DOLOR = [
       'Seno maxilar y pómulo (simula sinusitis maxilar)'
     ],
     sintomasAsociados: 'Sensación de alteración oclusal aguda (contacto prematuro anterior o posterior) por espasmo que tracciona el disco/cóndilo.',
-    posicionEsquema: { x: 60, y: 40 },
+    posicionEsquema: { x: 46.9, y: 50.0 },
+    triggerPoint: { x: 375, y: 400, label: 'Pterigoideo Lateral' },
+    zonasReferidas: [
+      { x: 415, y: 380, r: 24, label: 'Zona articular de ATM anterior', icon: '⚡' },
+      { x: 300, y: 380, r: 28, label: 'Seno maxilar y pómulo (simula sinusitis)', icon: '👃' }
+    ],
     zonaReferenciaSvg: 'seno-maxilar-atm',
     maniobraClinica: 'Pedir al paciente que realice protrusión mandibular contra la resistencia firme de la mano del operador.'
   },
@@ -118,7 +155,14 @@ export const MUSCULOS_DOLOR = [
       'Oído y mareos posturales o desequilibrio'
     ],
     sintomasAsociados: 'Sensación de inestabilidad o mareo al girar el cuello, lagrimeo o coriza refleja.',
-    posicionEsquema: { x: 38, y: 70 },
+    posicionEsquema: { x: 56.3, y: 78.8 },
+    triggerPoint: { x: 450, y: 630, label: 'Esternocleidomastoideo' },
+    zonasReferidas: [
+      { x: 440, y: 115, r: 35, label: 'Vértice craneal (coronilla)', icon: '⚡' },
+      { x: 550, y: 320, r: 30, label: 'Región occipital', icon: '⚡' },
+      { x: 265, y: 285, r: 24, label: 'Ceja y frente', icon: '⚡' },
+      { x: 440, y: 380, r: 25, label: 'Oído (mareos y lagrimeo)', icon: '👂' }
+    ],
     zonaReferenciaSvg: 'vertice-occipital-mejilla',
     maniobraClinica: 'Solicitar giro de cabeza contralateral y pinzar el músculo entre índice y pulgar.'
   },
@@ -134,7 +178,13 @@ export const MUSCULOS_DOLOR = [
       'Sien (patrón clásico de "signo de interrogación" que culmina en la fosa temporal)'
     ],
     sintomasAsociados: 'Tensión extrema en hombros, agravado por estrés o mala postura en el trabajo.',
-    posicionEsquema: { x: 22, y: 82 },
+    posicionEsquema: { x: 76.3, y: 93.8 },
+    triggerPoint: { x: 610, y: 750, label: 'Trapecio Superior' },
+    zonasReferidas: [
+      { x: 520, y: 530, r: 30, label: 'Cuello posterolateral', icon: '⚡' },
+      { x: 465, y: 385, r: 25, label: 'Apófisis mastoides', icon: '⚡' },
+      { x: 360, y: 255, r: 26, label: 'Sien (patrón en "signo de interrogación")', icon: '⚡' }
+    ],
     zonaReferenciaSvg: 'signo-interrogacion-sien',
     maniobraClinica: 'Pinzar la masa muscular carnosa del borde superior del hombro.'
   }
