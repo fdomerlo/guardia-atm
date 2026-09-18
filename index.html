@@ -17,13 +17,13 @@
   <!-- Open Graph & Social Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Guardia ATM · Hospital Odontológico Universitario FOLP / UNLP" />
-  <meta property="og:description" content="Manual clínico de triaje, diagnóstico y farmacoterapia de urgencias en ATM y dolor orofacial (Huff & Benoliel 2023)." />
+  <meta property="og:description" content="Manual clínico de triaje, diagnóstico y farmacoterapia de urgencias en ATM y dolor orofacial (Huff &amp; Benoliel 2023)." />
   <meta property="og:image" content="./assets/social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guardia ATM · Hospital Odontológico Universitario FOLP / UNLP" />
-  <meta name="twitter:description" content="Manual clínico de triaje, diagnóstico y farmacoterapia de urgencias en ATM y dolor orofacial (Huff & Benoliel 2023)." />
+  <meta name="twitter:description" content="Manual clínico de triaje, diagnóstico y farmacoterapia de urgencias en ATM y dolor orofacial (Huff &amp; Benoliel 2023)." />
   <meta name="twitter:image" content="./assets/social-preview.png" />
 
   <!-- Icons -->
@@ -42,3 +42,139 @@
   <div id="offlineIndicatorBadge" class="offline-banner-badge is-hidden" role="status" aria-live="polite">
     ⚡ Modo Offline Activo · 100% Funcional en Guardia
   </div>
+
+
+
+  <!-- Contenedor Principal de la App (Mobile-First) -->
+  <main class="app-main" role="main">
+    
+    <!-- Vista 1: Triaje y Asistente de Guardia -->
+    <div id="view-triaje" class="view-container active" role="tabpanel">
+      <div id="triageViewContainer">
+        <!-- Rendered by js/modules/triage.js -->
+      </div>
+    </div>
+
+    <!-- Vista 2: Compendio de Patologías -->
+    <div id="view-patologias" class="view-container" role="tabpanel">
+      <div id="pathologiesViewContainer">
+        <!-- Rendered by js/modules/pathologies-view.js -->
+      </div>
+    </div>
+
+    <!-- Vista 3: Vademécum y Fármacos -->
+    <div id="view-farmacos" class="view-container" role="tabpanel">
+      <div id="drugsViewContainer">
+        <!-- Rendered by js/modules/drugs-view.js -->
+      </div>
+    </div>
+
+    <!-- Vista 4: Maniobras e Infiltraciones -->
+    <div id="view-maniobras" class="view-container" role="tabpanel">
+      <div id="proceduresViewContainer">
+        <!-- Rendered by js/modules/procedures-view.js -->
+      </div>
+    </div>
+
+    <!-- Vista 5: Mapa de Dolor Referido -->
+    <div id="view-mapa" class="view-container" role="tabpanel">
+      <div id="referralViewContainer">
+        <!-- Rendered by js/modules/referral-map-view.js -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Barra de Navegación Inferior Fija (Mobile Bottom Navigation) -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegación principal">
+    <button class="bottom-nav-item active" data-view="triaje" role="tab" aria-selected="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      <span>Triaje</span>
+    </button>
+
+    <button class="bottom-nav-item" data-view="patologias" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      <span>Patologías</span>
+    </button>
+
+    <button class="bottom-nav-item" data-view="farmacos" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/>
+        <path d="m8.5 8.5 7 7"/>
+      </svg>
+      <span>Fármacos</span>
+    </button>
+
+    <button class="bottom-nav-item" data-view="maniobras" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="m18 2 4 4"/>
+        <path d="m17 7 3-3"/>
+        <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/>
+        <path d="m9 11 4 4"/>
+        <path d="m5 19-3 3"/>
+        <path d="m14 4 6 6"/>
+      </svg>
+      <span>Maniobras</span>
+    </button>
+
+    <button class="bottom-nav-item" data-view="mapa" role="tab" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <span>Mapa Dolor</span>
+    </button>
+  </nav>
+
+  <!-- Contenedor Dinámico para Bottom Sheets / Modales de Fichas -->
+  <div id="modalSheetContainer"></div>
+
+  <!-- Buscador Global Pantalla Completa (Overlay) -->
+  <div id="globalSearchOverlay" class="global-search-overlay is-hidden" role="dialog" aria-modal="true" aria-label="Buscador global">
+    <div class="search-top-bar">
+      <input type="search" id="globalSearchInput" placeholder="Buscar patología, síntoma, fármaco o CIE-10..." autocomplete="off" />
+      <button class="btn-search-cancel" id="btnCloseGlobalSearch">Cerrar</button>
+    </div>
+    <div class="search-results-area" id="globalSearchResults">
+      <p class="search-hint">Escribe al menos 2 letras para buscar instantáneamente sin conexión.</p>
+    </div>
+  </div>
+
+  <!-- Modal de Información Institucional y Bibliografía -->
+  <div id="appInfoModal" class="info-modal-backdrop is-hidden" role="dialog" aria-modal="true">
+    <div class="info-dialog-card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3>Guardia ATM · FOLP / UNLP</h3>
+        <button class="header-btn" id="btnCloseAppInfo" style="color: var(--color-text-main); background: var(--color-surface-hover);">✕</button>
+      </div>
+      
+      <p>Aplicación web progresiva desarrollada para la <strong>Guardia Odontológica y Servicio de Dolor Orofacial</strong> del Hospital de la Facultad de Odontología de la Universidad Nacional de La Plata.</p>
+
+      <div class="citation-box">
+        <strong>Referencia Bibliográfica Principal:</strong><br>
+        Huff KD, Benoliel R. <em>Clinical Handbook for Oral, Facial, and Head Pain</em>. J Oral Facial Pain Headache 2023;37(4):219–268. doi: 10.11607/ofph.3488.
+      </div>
+
+      <h4>Características del Sistema:</h4>
+      <ul>
+        <li><strong>100% Offline-First:</strong> Funciona en subsuelos y boxes sin señal de internet ni datos móviles.</li>
+        <li><strong>Criterios Diagnósticos Oficiales:</strong> DC/TMD, ICHD-3 (Sociedad Internacional de Cefaleas) e ICOP (Clasificación Internacional de Dolor Orofacial).</li>
+        <li><strong>Vademécum de Guardia:</strong> Dosificación hospitalaria con advertencias de caja negra (Black Box Warnings).</li>
+        <li><strong>Códigos CIE-10:</strong> Incorporados para registro inmediato en la historia clínica del paciente.</li>
+      </ul>
+
+      <button class="btn-primary btn-full-width" id="btnInstallFromInfo">
+        📲 Instalar Aplicación en Pantalla de Inicio
+      </button>
+    </div>
+  </div>
+
+  <!-- Standalone Universal JavaScript Bundle (Funciona tanto en http:// como en file://) -->
+  <script src="./js/bundle.js"></script>
+</body>
+</html>
