@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00281e"/>
+      <stop offset="50%" stop-color="#00382b"/>
+      <stop offset="100%" stop-color="#00140d"/>
+    </linearGradient>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004737"/>
+      <stop offset="100%" stop-color="#002219"/>
+    </linearGradient>
+
+    <!-- Ambient Halo Glow -->
+    <radialGradient id="haloGlow" cx="75%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#46A3B7" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#46A3B7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Pill Gradient -->
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(70, 163, 183, 0.15)"/>
+      <stop offset="100%" stop-color="rgba(0, 51, 38, 0.3)"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadowCard" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#46A3B7" flood-opacity="0.2"/>
+    </filter>
+    <filter id="shadowIcon" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle Medical Matrix Grid Pattern -->
+  <g stroke="#46A3B7" stroke-width="1" stroke-opacity="0.06">
+    <line x1="80" y1="0" x2="80" y2="640"/>
+    <line x1="160" y1="0" x2="160" y2="640"/>
+    <line x1="240" y1="0" x2="240" y2="640"/>
+    <line x1="320" y1="0" x2="320" y2="640"/>
+    <line x1="400" y1="0" x2="400" y2="640"/>
+    <line x1="480" y1="0" x2="480" y2="640"/>
+    <line x1="560" y1="0" x2="560" y2="640"/>
+    <line x1="640" y1="0" x2="640" y2="640"/>
+    <line x1="720" y1="0" x2="720" y2="640"/>
+    <line x1="800" y1="0" x2="800" y2="640"/>
+    <line x1="880" y1="0" x2="880" y2="640"/>
+    <line x1="960" y1="0" x2="960" y2="640"/>
+    <line x1="1040" y1="0" x2="1040" y2="640"/>
+    <line x1="1120" y1="0" x2="1120" y2="640"/>
+    <line x1="1200" y1="0" x2="1200" y2="640"/>
+
+    <line x1="0" y1="80" x2="1280" y2="80"/>
+    <line x1="0" y1="160" x2="1280" y2="160"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="320" x2="1280" y2="320"/>
+    <line x1="0" y1="400" x2="1280" y2="400"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="560" x2="1280" y2="560"/>
+  </g>
+
+  <!-- Ambient Light Halo on Right -->
+  <rect x="550" y="0" width="730" height="640" fill="url(#haloGlow)"/>
+
+  <!-- LEFT COLUMN: CONTENT -->
+  <g font-family="Montserrat, system-ui, sans-serif">
+    
+    <!-- Institutional Top Category Tag -->
+    <g transform="translate(80, 82)">
+      <rect x="0" y="0" width="28" height="28" rx="8" fill="#004737" stroke="#46A3B7" stroke-width="1.5"/>
+      <!-- Little tooth / medical cross glyph in tag -->
+      <path d="M 14 7 L 14 21 M 7 14 L 21 14" stroke="#46A3B7" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="38" y="19" font-size="13.5" font-weight="700" fill="#46A3B7" letter-spacing="2">HOSPITAL ODONTOLÓGICO UNIVERSITARIO · FOLP / UNLP</text>
+    </g>
+
+    <!-- Main App Title -->
+    <text x="80" y="210" font-size="76" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Guardia ATM</text>
+
+    <!-- Clinical Focus Subtitle -->
+    <text x="80" y="265" font-size="26" font-weight="600" fill="#5ec7dd" letter-spacing="-0.2">Manual Clínico de Dolor Orofacial &amp; Urgencias</text>
+    <text x="80" y="300" font-size="18" font-weight="400" fill="#94a3b8">Triaje rápido, diagnóstico DC/TMD, CIE-10 y farmacoterapia de guardia</text>
+
+    <!-- Scientific Handbook Reference Pill -->
+    <g transform="translate(80, 345)">
+      <rect x="0" y="0" width="620" height="72" rx="14" fill="rgba(0, 35, 26, 0.75)" stroke="#46A3B7" stroke-width="1.2" stroke-opacity="0.35"/>
+      <text x="20" y="28" font-size="13" font-weight="700" fill="#e2e8f0">BASADO EN GUÍA CLÍNICA OFICIAL (HUFF &amp; BENOLIEL 2023)</text>
+      <text x="20" y="50" font-size="12" font-weight="400" fill="#94a3b8">Clinical Handbook for Oral, Facial, and Head Pain · J Oral Facial Pain Headache</text>
+      <rect x="515" y="18" width="85" height="36" rx="8" fill="#004737" stroke="#46A3B7" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="557" y="41" font-size="12" font-weight="700" fill="#46A3B7" text-anchor="middle">FOLP</text>
+    </g>
+
+    <!-- Key Feature Badges Grid -->
+    <g transform="translate(80, 455)">
+      <!-- Badge 1: Triaje & Red Flags -->
+      <rect x="0" y="0" width="190" height="44" rx="10" fill="rgba(220, 38, 38, 0.15)" stroke="#dc2626" stroke-width="1.2" stroke-opacity="0.6"/>
+      <circle cx="22" cy="22" r="5" fill="#ef4444"/>
+      <text x="36" y="27" font-size="13" font-weight="600" fill="#fecaca">Triaje &amp; Red Flags</text>
+
+      <!-- Badge 2: Farmacoterapia -->
+      <rect x="204" y="0" width="210" height="44" rx="10" fill="url(#pillGrad)" stroke="#46A3B7" stroke-width="1.2" stroke-opacity="0.4"/>
+      <text x="220" y="27" font-size="13" font-weight="600" fill="#e2e8f0">💊 Farmacoterapia 1ª Línea</text>
+
+      <!-- Badge 3: Maniobras -->
+      <rect x="428" y="0" width="190" height="44" rx="10" fill="url(#pillGrad)" stroke="#46A3B7" stroke-width="1.2" stroke-opacity="0.4"/>
+      <text x="444" y="27" font-size="13" font-weight="600" fill="#e2e8f0">🩺 Maniobra Nelatón</text>
+
+      <!-- Bottom Secondary Line -->
+      <g transform="translate(0, 56)">
+        <rect x="0" y="0" width="210" height="40" rx="8" fill="rgba(70, 163, 183, 0.1)" stroke="#46A3B7" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="16" y="25" font-size="12.5" font-weight="600" fill="#46A3B7">📍 Mapa Dolor Referido</text>
+
+        <rect x="222" y="0" width="190" height="40" rx="8" fill="rgba(70, 163, 183, 0.1)" stroke="#46A3B7" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="238" y="25" font-size="12.5" font-weight="600" fill="#46A3B7">⚡ 100% Offline PWA</text>
+
+        <rect x="424" y="0" width="194" height="40" rx="8" fill="rgba(70, 163, 183, 0.1)" stroke="#46A3B7" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="440" y="25" font-size="12.5" font-weight="600" fill="#46A3B7">📱 Mobile-First Box</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: HERO APP ICON SHOWCASE CARD -->
+  <g transform="translate(810, 110)">
+    <!-- Elevated Glassmorphism Device / App Card -->
+    <rect x="0" y="0" width="390" height="420" rx="36" fill="url(#cardBg)" stroke="#46A3B7" stroke-width="2.5" stroke-opacity="0.4" filter="url(#shadowCard)"/>
+
+    <!-- Inner Subtle Border -->
+    <rect x="12" y="12" width="366" height="396" rx="26" fill="none" stroke="#46A3B7" stroke-width="1" stroke-opacity="0.15"/>
+
+    <!-- Icon Artboard Container (Centered inside card) -->
+    <!-- The exact approved ATM isotype -->
+    <g transform="translate(195, 175) scale(1.65)" filter="url(#shadowIcon)">
+      <!-- Center offset of the icon geometry: (95.4, 110.7) -->
+      <g transform="translate(-95.4, -110.7)">
+        <!-- Head Outline -->
+        <path d="M 41 174 
+                 C 42 165 47 155 49 143 
+                 C 46 128 39 105 32 88 
+                 C 29 78 29 68 33 50 
+                 C 38 34 52 24 72 20 
+                 C 80 18 90 18 96 18 
+                 C 118 19 138 29 149 46 
+                 C 155 58 155 70 154 80 
+                 C 155 86 160 92 167 100 
+                 C 171 105 171 108 168 111 
+                 C 162 113 159 116 158 120 
+                 C 158 124 157 127 157 130 
+                 C 157 134 156 140 155 145 
+                 C 152 151 146 153 136 153 
+                 C 124 153 118 158 116 174" 
+              fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Mandible Line -->
+        <path d="M 95.4 127.2 
+                 L 95.4 138 
+                 C 95.4 146 102 151 114 152 
+                 L 142 153" 
+              fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Left Pain/Resonance Arcs -->
+        <path d="M 77 94 A 23.5 23.5 0 0 0 77 127" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+        <path d="M 67 87 A 35.5 35.5 0 0 0 67 134" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+
+        <!-- Right Pain/Resonance Arcs -->
+        <path d="M 114 94 A 23.5 23.5 0 0 1 114 127" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+        <path d="M 124 87 A 35.5 35.5 0 0 1 124 134" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+
+        <!-- Cyan ATM Disc with inner ring -->
+        <circle cx="95.4" cy="110.7" r="16.5" fill="#46A3B7" stroke="none"/>
+        <circle cx="95.4" cy="110.7" r="7.8" fill="#00281e" stroke="#FFFFFF" stroke-width="3.8"/>
+      </g>
+    </g>
+
+    <!-- Bottom Pill Badge on the Hero Card -->
+    <g transform="translate(55, 345)">
+      <rect x="0" y="0" width="280" height="44" rx="22" fill="#00241b" stroke="#46A3B7" stroke-width="1.5" stroke-opacity="0.6"/>
+      <circle cx="24" cy="22" r="6" fill="#059669"/>
+      <text x="38" y="27" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" letter-spacing="1.5">PWA OFFLINE · HOSPITAL FOLP</text>
+    </g>
+  </g>
+</svg>

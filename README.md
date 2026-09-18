@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./assets/social-preview.png" alt="Guardia ATM · Hospital Odontológico Universitario FOLP / UNLP" width="100%">
+</div>
+
 # Guardia ATM · Hospital Odontológico Universitario FOLP / UNLP
 
 Aplicación Web Progresiva (PWA) de consulta clínica rápida, para la **Guardia Odontológica y Servicio de Dolor Orofacial y ATM** del Hospital Universitario de la **Facultad de Odontología de la Universidad Nacional de La Plata (FOLP / UNLP)**.
