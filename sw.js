@@ -23,6 +23,7 @@ const PRECACHE_ASSETS = [
   './js/modules/search.js',
   './js/modules/favorites.js',
   './js/modules/pwa.js',
+  './js/modules/screen-header.js',
   './assets/folp-logo.svg',
   './assets/mapa-anatomico.jpg',
   './assets/icons/icon.svg',

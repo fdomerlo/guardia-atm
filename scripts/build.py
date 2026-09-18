@@ -20,6 +20,7 @@ files_order = [
     'js/modules/favorites.js',
     'js/modules/search.js',
     'js/modules/pwa.js',
+    'js/modules/screen-header.js',
     'js/modules/triage.js',
     'js/modules/pathologies-view.js',
     'js/modules/drugs-view.js',
@@ -40,6 +41,9 @@ for rel_path in files_order:
 
     # Remove import lines
     code = re.sub(r'^\s*import\s+[^;]+;?\s*$', '', code, flags=re.MULTILINE)
+    # Replace 'export function ' with 'function '
+    code = re.sub(r'\bexport\s+function\s+', 'function ', code)
+    code = re.sub(r'\bexport\s+async\s+function\s+', 'async function ', code)
     # Replace 'export const ' with 'const '
     code = re.sub(r'\bexport\s+const\s+', 'const ', code)
     # Replace 'export class ' with 'class '

@@ -5,6 +5,7 @@
 
 import { PATOLOGIAS, CATEGORIAS_PATOLOGIAS } from '../data/patologias.js';
 import { FavoritesManager } from './favorites.js';
+import { renderScreenHeader } from './screen-header.js';
 
 export class PathologiesView {
   constructor(containerId, modalContainerId) {
@@ -35,18 +36,26 @@ export class PathologiesView {
   render() {
     if (!this.container) return;
 
+    const searchHtml = `
+      <div class="search-input-wrap">
+        <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="pathologyLocalSearch" placeholder="Buscar por patología, síntoma o CIE-10..." aria-label="Buscar patología" value="${this.searchQuery || ''}">
+        <button class="clear-search-btn ${this.searchQuery ? '' : 'is-hidden'}" id="clearLocalSearch" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+    `;
+
     this.container.innerHTML = `
       <section class="pathologies-section">
-        <div class="section-top-bar">
-          <div class="search-input-wrap">
-            <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" id="pathologyLocalSearch" placeholder="Buscar por patología, síntoma o CIE-10..." aria-label="Buscar patología">
-            <button class="clear-search-btn is-hidden" id="clearLocalSearch" aria-label="Limpiar búsqueda">✕</button>
-          </div>
-        </div>
+        <!-- Screen Header Estético con Búsqueda Integrada -->
+        ${renderScreenHeader({
+          category: 'Clasificación Diagnóstica',
+          title: 'Patologías de ATM y Cabeza',
+          subtitle: '40 entidades orofaciales según DC/TMD, ICOP e ICHD-3 con criterios diagnósticos y CIE-10.',
+          searchInputHtml: searchHtml
+        })}
 
         <!-- Filter Pills Scrollable Bar -->
         <div class="filter-pills-bar" id="categoryFilterBar">

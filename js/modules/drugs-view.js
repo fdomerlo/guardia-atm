@@ -4,6 +4,7 @@
  */
 
 import { FARMACOS, GRUPOS_FARMACOS } from '../data/farmacos.js';
+import { renderScreenHeader } from './screen-header.js';
 
 export class DrugsView {
   constructor(containerId) {
@@ -27,16 +28,26 @@ export class DrugsView {
   render() {
     if (!this.container) return;
 
+    const searchHtml = `
+      <div class="search-input-wrap">
+        <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="drugSearchInput" placeholder="Buscar fármaco por nombre, dosis o indicación..." aria-label="Buscar fármaco" value="${this.searchQuery || ''}">
+      </div>
+    `;
+
     this.container.innerHTML = `
       <section class="drugs-section">
         
-        <!-- Header -->
-        <div class="drugs-header-card">
-          <div class="drugs-header-text">
-            <h2>Vademécum de Guardia Odontológica</h2>
-            <p>Posología de urgencia, riesgos orgánicos y advertencias de caja negra (Black Box Warnings) según Huff & Benoliel (2023).</p>
-          </div>
-        </div>
+        <!-- Screen Header Estético con Búsqueda -->
+        ${renderScreenHeader({
+          category: 'Farmacoterapia de Urgencia',
+          title: 'Vademécum de Guardia',
+          subtitle: 'Posología hospitalaria, riesgos orgánicos y advertencias de caja negra (Huff & Benoliel 2023).',
+          searchInputHtml: searchHtml
+        })}
 
         <!-- Quick Safety Checker Widget -->
         <div class="card safety-checker-card">
@@ -60,37 +71,28 @@ export class DrugsView {
                 <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkRenal"> Falla renal / Creatinina elevada
+                <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkElderly"> Adulto mayor (> 65 años)
+                <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkPregnant"> Paciente embarazada
+                <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
               </label>
             </div>
 
-            <div id="safetyAdviceBox" class="safety-advice-box">
-              <p>Selecciona una condición para ver las recomendaciones inmediatas.</p>
+            <div class="safety-advice-box" id="safetyAdviceBox">
+              <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
             </div>
           </div>
         </div>
 
-        <!-- Filter bar -->
+        <!-- Groups Filter Bar -->
         <div class="filter-pills-bar" id="drugGroupPills">
           <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
           ${GRUPOS_FARMACOS.map(
             (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
           ).join('')}
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-input-wrap" style="margin: 12px 0;">
-          <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" id="drugSearchInput" placeholder="Buscar fármaco por nombre, dosis o indicación..." aria-label="Buscar fármaco">
         </div>
 
         <!-- Drugs Grid -->

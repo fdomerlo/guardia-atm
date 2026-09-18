@@ -5,6 +5,7 @@
 
 import { BANDERAS_ROJAS, ASISTENTE_TRIAJE_PREGUNTAS } from '../data/red-flags.js';
 import { PATOLOGIAS } from '../data/patologias.js';
+import { renderScreenHeader } from './screen-header.js';
 
 export class TriageModule {
   constructor(containerId, onSelectPathology) {
@@ -24,19 +25,12 @@ export class TriageModule {
 
     this.container.innerHTML = `
       <section class="triage-section">
-        <!-- Hospital Header Badge -->
-        <div class="hospital-banner-card">
-          <div class="hospital-banner-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M2 12h20"/>
-            </svg>
-          </div>
-          <div class="hospital-banner-info">
-            <span class="hospital-tag">FOLP · UNLP</span>
-            <h3>Guardia de Dolor Orofacial y ATM</h3>
-            <p>Hospital Odontológico Universitario · Guía Rápida para Profesionales y Alumnos</p>
-          </div>
-        </div>
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Triaje y Urgencias',
+          title: 'Triaje de Guardia Orofacial',
+          subtitle: 'Evaluación rápida de dolor articular, muscular y criterios de derivación médica urgente (Huff & Benoliel 2023).'
+        })}
 
         <!-- Banderas Rojas Accordion / Alert Banner -->
         <div class="card card-red-flags" id="redFlagsAccordion">

@@ -13,32 +13,106 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Banner Institucional Superior */
-.hospital-banner-card {
-  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+/* ========================================================
+ * SCREEN HEADERS ESTÉTICOS (SISTEMA DE ENCABEZADOS DE PANTALLA)
+ * ======================================================== */
+.screen-header {
+  background: linear-gradient(135deg, #004d43 0%, var(--color-primary) 50%, #1a6b7a 100%);
   color: #ffffff;
   border-radius: var(--radius-lg);
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow-md);
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 77, 67, 0.28);
+  position: relative;
+  overflow: hidden;
 }
 
-.hospital-banner-icon {
-  background: rgba(255, 255, 255, 0.15);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
+[data-theme="dark"] .screen-header {
+  background: linear-gradient(135deg, #061e1b 0%, #0c332d 50%, #123d47 100%);
+  border: 1px solid rgba(70, 163, 183, 0.22);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.screen-header::after {
+  content: '';
+  position: absolute;
+  right: -25px;
+  bottom: -25px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(70, 163, 183, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.screen-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.screen-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.screen-brand-logo {
+  height: 28px;
+  width: auto;
+  max-width: 130px;
+  display: block;
+}
+
+.screen-brand-badge {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+  color: #e6f7f6;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.screen-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.screen-action-btn {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  color: var(--color-accent-light);
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all var(--transition-fast);
 }
 
-.hospital-tag {
+.screen-action-btn:hover, .screen-action-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.06);
+  outline: none;
+}
+
+.screen-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.screen-category-badge {
   display: inline-block;
   background: var(--color-accent);
   color: #ffffff;
@@ -46,20 +120,70 @@
   font-weight: 800;
   padding: 2px 8px;
   border-radius: var(--radius-full);
+  margin-bottom: 6px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.screen-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.22;
+  color: #ffffff;
   margin-bottom: 4px;
-  letter-spacing: 0.5px;
 }
 
-.hospital-banner-info h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.25;
+.screen-subtitle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+  margin-bottom: 0;
 }
 
-.hospital-banner-info p {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 2px;
+/* Screen search bar inside header */
+.screen-search-box {
+  margin-top: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.screen-search-box .search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius-md);
+  padding: 0 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .screen-search-box .search-input-wrap {
+  background: #192738;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.screen-search-box input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: transparent;
+  padding-left: 8px;
+  font-size: 0.88rem;
+  color: #0f172a;
+  outline: none;
+}
+
+[data-theme="dark"] .screen-search-box input {
+  color: #f1f5f9;
+}
+
+.screen-search-box input::placeholder {
+  color: #64748b;
+}
+
+/* Banner Institucional Superior (Legacy) */
+.hospital-banner-card {
+  display: none;
 }
 
 /* Botones */

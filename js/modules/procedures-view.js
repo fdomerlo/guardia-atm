@@ -4,6 +4,7 @@
  */
 
 import { PROCEDIMIENTOS, PRUEBAS_LABORATORIO } from '../data/procedimientos.js';
+import { renderScreenHeader } from './screen-header.js';
 
 export class ProceduresView {
   constructor(containerId) {
@@ -22,6 +23,13 @@ export class ProceduresView {
     this.container.innerHTML = `
       <section class="procedures-section">
         
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Práctica Clínica en Box',
+          title: 'Procedimientos y Laboratorio',
+          subtitle: 'Técnicas de reducción articular, bloqueo anestésico diagnóstico e interpretación de reactantes (PCR/VSG).'
+        })}
+
         <!-- Tab Bar -->
         <div class="procedures-tab-bar">
           <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">

@@ -54,17 +54,24 @@ class App {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
 
-    const themeToggleBtn = document.getElementById('btnToggleTheme');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
+    const updateAllThemeButtons = (isDark) => {
+      document.querySelectorAll('.btn-toggle-theme, #btnToggleTheme').forEach((btn) => {
+        btn.innerHTML = isDark ? '☀️' : '🌙';
+      });
+    };
+
+    document.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.btn-toggle-theme, #btnToggleTheme');
+      if (toggleBtn) {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const newTheme = isDark ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('guardia_atm_theme', newTheme);
-        themeToggleBtn.innerHTML = isDark ? '🌙' : '☀️';
-      });
-      themeToggleBtn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
-    }
+        updateAllThemeButtons(newTheme === 'dark');
+      }
+    });
+
+    updateAllThemeButtons(savedTheme === 'dark');
   }
 
   setupNavigation() {
@@ -124,18 +131,19 @@ class App {
   }
 
   setupGlobalSearch() {
-    const searchTrigger = document.getElementById('btnOpenGlobalSearch');
     const searchOverlay = document.getElementById('globalSearchOverlay');
     const searchClose = document.getElementById('btnCloseGlobalSearch');
     const searchInput = document.getElementById('globalSearchInput');
     const searchResults = document.getElementById('globalSearchResults');
 
-    if (!searchTrigger || !searchOverlay || !searchInput || !searchResults) return;
+    if (!searchOverlay || !searchInput || !searchResults) return;
 
-    searchTrigger.addEventListener('click', () => {
-      searchOverlay.classList.remove('is-hidden');
-      searchInput.focus();
-      document.body.classList.add('search-open');
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-open-search, #btnOpenGlobalSearch')) {
+        searchOverlay.classList.remove('is-hidden');
+        searchInput.focus();
+        document.body.classList.add('search-open');
+      }
     });
 
     const closeSearch = () => {
@@ -213,16 +221,17 @@ class App {
   }
 
   setupInfoModal() {
-    const btnInfo = document.getElementById('btnOpenAppInfo');
     const modal = document.getElementById('appInfoModal');
     const closeBtn = document.getElementById('btnCloseAppInfo');
     const installBtn = document.getElementById('btnInstallFromInfo');
 
-    if (!btnInfo || !modal) return;
+    if (!modal) return;
 
-    btnInfo.addEventListener('click', () => {
-      modal.classList.remove('is-hidden');
-      document.body.classList.add('modal-open');
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-open-info, #btnOpenAppInfo')) {
+        modal.classList.remove('is-hidden');
+        document.body.classList.add('modal-open');
+      }
     });
 
     const closeModal = () => {

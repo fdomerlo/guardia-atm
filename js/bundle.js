@@ -2594,11 +2594,58 @@ class PWAManager {
 }
 
 
+  /* === File: js/modules/screen-header.js === */
+/**
+ * guardia-atm - Componente de Encabezado Estético por Pantalla
+ * Reemplaza la barra superior fija tradicional con un diseño moderno, espacioso y responsive.
+ */
+
+function renderScreenHeader({ category, title, subtitle, searchInputHtml = '' }) {
+  const isDark = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark';
+  
+  return `
+    <header class="screen-header" role="banner">
+      <div class="screen-header-top">
+        <div class="screen-brand">
+          <img src="./assets/folp-logo.svg" alt="FOLP UNLP" class="screen-brand-logo" width="130" height="30" />
+          <span class="screen-brand-badge">HOSPITAL</span>
+        </div>
+        <div class="screen-actions">
+          <button class="screen-action-btn btn-open-search" aria-label="Buscador global" title="Búsqueda global (patologías, síntomas, fármacos)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+          <button class="screen-action-btn btn-toggle-theme" aria-label="Cambiar modo oscuro/claro" title="Cambiar tema">
+            ${isDark ? '☀️' : '🌙'}
+          </button>
+          <button class="screen-action-btn btn-open-info" aria-label="Información institucional" title="Información y Guía">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="screen-header-content">
+        <span class="screen-category-badge">${category}</span>
+        <h1 class="screen-title">${title}</h1>
+        <p class="screen-subtitle">${subtitle}</p>
+        ${searchInputHtml ? `<div class="screen-search-box">${searchInputHtml}</div>` : ''}
+      </div>
+    </header>
+  `;
+}
+
+
   /* === File: js/modules/triage.js === */
 /**
  * guardia-atm - Módulo de Triaje y Banderas Rojas
  * Asistente de decisión rápida de guardia y alertas de derivación médica urgente.
  */
+
 
 
 class TriageModule {
@@ -2619,19 +2666,12 @@ class TriageModule {
 
     this.container.innerHTML = `
       <section class="triage-section">
-        <!-- Hospital Header Badge -->
-        <div class="hospital-banner-card">
-          <div class="hospital-banner-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M2 12h20"/>
-            </svg>
-          </div>
-          <div class="hospital-banner-info">
-            <span class="hospital-tag">FOLP · UNLP</span>
-            <h3>Guardia de Dolor Orofacial y ATM</h3>
-            <p>Hospital Odontológico Universitario · Guía Rápida para Profesionales y Alumnos</p>
-          </div>
-        </div>
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Triaje y Urgencias',
+          title: 'Triaje de Guardia Orofacial',
+          subtitle: 'Evaluación rápida de dolor articular, muscular y criterios de derivación médica urgente (Huff & Benoliel 2023).'
+        })}
 
         <!-- Banderas Rojas Accordion / Alert Banner -->
         <div class="card card-red-flags" id="redFlagsAccordion">
@@ -2862,6 +2902,7 @@ class TriageModule {
  */
 
 
+
 class PathologiesView {
   constructor(containerId, modalContainerId) {
     this.container = document.getElementById(containerId);
@@ -2891,18 +2932,26 @@ class PathologiesView {
   render() {
     if (!this.container) return;
 
+    const searchHtml = `
+      <div class="search-input-wrap">
+        <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="pathologyLocalSearch" placeholder="Buscar por patología, síntoma o CIE-10..." aria-label="Buscar patología" value="${this.searchQuery || ''}">
+        <button class="clear-search-btn ${this.searchQuery ? '' : 'is-hidden'}" id="clearLocalSearch" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+    `;
+
     this.container.innerHTML = `
       <section class="pathologies-section">
-        <div class="section-top-bar">
-          <div class="search-input-wrap">
-            <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" id="pathologyLocalSearch" placeholder="Buscar por patología, síntoma o CIE-10..." aria-label="Buscar patología">
-            <button class="clear-search-btn is-hidden" id="clearLocalSearch" aria-label="Limpiar búsqueda">✕</button>
-          </div>
-        </div>
+        <!-- Screen Header Estético con Búsqueda Integrada -->
+        ${renderScreenHeader({
+          category: 'Clasificación Diagnóstica',
+          title: 'Patologías de ATM y Cabeza',
+          subtitle: '40 entidades orofaciales según DC/TMD, ICOP e ICHD-3 con criterios diagnósticos y CIE-10.',
+          searchInputHtml: searchHtml
+        })}
 
         <!-- Filter Pills Scrollable Bar -->
         <div class="filter-pills-bar" id="categoryFilterBar">
@@ -3331,6 +3380,7 @@ class PathologiesView {
  * Basado en Huff & Benoliel (2023), págs. 41-43.
  */
 
+
 class DrugsView {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -3353,16 +3403,26 @@ class DrugsView {
   render() {
     if (!this.container) return;
 
+    const searchHtml = `
+      <div class="search-input-wrap">
+        <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="drugSearchInput" placeholder="Buscar fármaco por nombre, dosis o indicación..." aria-label="Buscar fármaco" value="${this.searchQuery || ''}">
+      </div>
+    `;
+
     this.container.innerHTML = `
       <section class="drugs-section">
         
-        <!-- Header -->
-        <div class="drugs-header-card">
-          <div class="drugs-header-text">
-            <h2>Vademécum de Guardia Odontológica</h2>
-            <p>Posología de urgencia, riesgos orgánicos y advertencias de caja negra (Black Box Warnings) según Huff & Benoliel (2023).</p>
-          </div>
-        </div>
+        <!-- Screen Header Estético con Búsqueda -->
+        ${renderScreenHeader({
+          category: 'Farmacoterapia de Urgencia',
+          title: 'Vademécum de Guardia',
+          subtitle: 'Posología hospitalaria, riesgos orgánicos y advertencias de caja negra (Huff & Benoliel 2023).',
+          searchInputHtml: searchHtml
+        })}
 
         <!-- Quick Safety Checker Widget -->
         <div class="card safety-checker-card">
@@ -3386,37 +3446,28 @@ class DrugsView {
                 <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkRenal"> Falla renal / Creatinina elevada
+                <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkElderly"> Adulto mayor (> 65 años)
+                <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
               </label>
               <label class="risk-chk-label">
-                <input type="checkbox" id="chkPregnant"> Paciente embarazada
+                <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
               </label>
             </div>
 
-            <div id="safetyAdviceBox" class="safety-advice-box">
-              <p>Selecciona una condición para ver las recomendaciones inmediatas.</p>
+            <div class="safety-advice-box" id="safetyAdviceBox">
+              <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
             </div>
           </div>
         </div>
 
-        <!-- Filter bar -->
+        <!-- Groups Filter Bar -->
         <div class="filter-pills-bar" id="drugGroupPills">
           <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
           ${GRUPOS_FARMACOS.map(
             (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
           ).join('')}
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-input-wrap" style="margin: 12px 0;">
-          <svg class="search-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" id="drugSearchInput" placeholder="Buscar fármaco por nombre, dosis o indicación..." aria-label="Buscar fármaco">
         </div>
 
         <!-- Drugs Grid -->
@@ -3603,6 +3654,7 @@ class DrugsView {
  * Basado en Huff & Benoliel (2023), págs. 44-50.
  */
 
+
 class ProceduresView {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -3620,6 +3672,13 @@ class ProceduresView {
     this.container.innerHTML = `
       <section class="procedures-section">
         
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Práctica Clínica en Box',
+          title: 'Procedimientos y Laboratorio',
+          subtitle: 'Técnicas de reducción articular, bloqueo anestésico diagnóstico e interpretación de reactantes (PCR/VSG).'
+        })}
+
         <!-- Tab Bar -->
         <div class="procedures-tab-bar">
           <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">
@@ -3751,6 +3810,7 @@ class ProceduresView {
  * Basado en Huff & Benoliel (2023) Fig. 1 y Simons, Travell & Simons.
  */
 
+
 class ReferralMapView {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -3768,11 +3828,12 @@ class ReferralMapView {
     this.container.innerHTML = `
       <section class="referral-map-section">
         
-        <!-- Header -->
-        <div class="map-intro-card">
-          <h2>Mapa Interactivo de Dolor Referido Muscular</h2>
-          <p>Patrones de referencia del dolor miofascial orofacial y cervical (Huff & Benoliel Fig. 1). Selecciona un músculo o consulta el buscador inverso por diente dolorido.</p>
-        </div>
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Anatomía y Dolor Referido',
+          title: 'Mapa Radiográfico Miofascial',
+          subtitle: 'Mapeo interactivo de puntos gatillo, patrones de irradiación orofacial y odontalgia referida (Huff & Benoliel 2023).'
+        })}
 
         <!-- Mode Toggle -->
         <div class="map-mode-toggle">
@@ -4120,17 +4181,24 @@ class App {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
 
-    const themeToggleBtn = document.getElementById('btnToggleTheme');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
+    const updateAllThemeButtons = (isDark) => {
+      document.querySelectorAll('.btn-toggle-theme, #btnToggleTheme').forEach((btn) => {
+        btn.innerHTML = isDark ? '☀️' : '🌙';
+      });
+    };
+
+    document.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.btn-toggle-theme, #btnToggleTheme');
+      if (toggleBtn) {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const newTheme = isDark ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('guardia_atm_theme', newTheme);
-        themeToggleBtn.innerHTML = isDark ? '🌙' : '☀️';
-      });
-      themeToggleBtn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
-    }
+        updateAllThemeButtons(newTheme === 'dark');
+      }
+    });
+
+    updateAllThemeButtons(savedTheme === 'dark');
   }
 
   setupNavigation() {
@@ -4190,18 +4258,19 @@ class App {
   }
 
   setupGlobalSearch() {
-    const searchTrigger = document.getElementById('btnOpenGlobalSearch');
     const searchOverlay = document.getElementById('globalSearchOverlay');
     const searchClose = document.getElementById('btnCloseGlobalSearch');
     const searchInput = document.getElementById('globalSearchInput');
     const searchResults = document.getElementById('globalSearchResults');
 
-    if (!searchTrigger || !searchOverlay || !searchInput || !searchResults) return;
+    if (!searchOverlay || !searchInput || !searchResults) return;
 
-    searchTrigger.addEventListener('click', () => {
-      searchOverlay.classList.remove('is-hidden');
-      searchInput.focus();
-      document.body.classList.add('search-open');
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-open-search, #btnOpenGlobalSearch')) {
+        searchOverlay.classList.remove('is-hidden');
+        searchInput.focus();
+        document.body.classList.add('search-open');
+      }
     });
 
     const closeSearch = () => {
@@ -4279,16 +4348,17 @@ class App {
   }
 
   setupInfoModal() {
-    const btnInfo = document.getElementById('btnOpenAppInfo');
     const modal = document.getElementById('appInfoModal');
     const closeBtn = document.getElementById('btnCloseAppInfo');
     const installBtn = document.getElementById('btnInstallFromInfo');
 
-    if (!btnInfo || !modal) return;
+    if (!modal) return;
 
-    btnInfo.addEventListener('click', () => {
-      modal.classList.remove('is-hidden');
-      document.body.classList.add('modal-open');
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.btn-open-info, #btnOpenAppInfo')) {
+        modal.classList.remove('is-hidden');
+        document.body.classList.add('modal-open');
+      }
     });
 
     const closeModal = () => {

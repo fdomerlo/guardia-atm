@@ -4,6 +4,7 @@
  */
 
 import { MUSCULOS_DOLOR, ZONAS_DOLOR_DENTAL_REFERIDO } from '../data/mapa-dolor.js';
+import { renderScreenHeader } from './screen-header.js';
 
 export class ReferralMapView {
   constructor(containerId) {
@@ -22,11 +23,12 @@ export class ReferralMapView {
     this.container.innerHTML = `
       <section class="referral-map-section">
         
-        <!-- Header -->
-        <div class="map-intro-card">
-          <h2>Mapa Interactivo de Dolor Referido Muscular</h2>
-          <p>Patrones de referencia del dolor miofascial orofacial y cervical (Huff & Benoliel Fig. 1). Selecciona un músculo o consulta el buscador inverso por diente dolorido.</p>
-        </div>
+        <!-- Screen Header Estético -->
+        ${renderScreenHeader({
+          category: 'Anatomía y Dolor Referido',
+          title: 'Mapa Radiográfico Miofascial',
+          subtitle: 'Mapeo interactivo de puntos gatillo, patrones de irradiación orofacial y odontalgia referida (Huff & Benoliel 2023).'
+        })}
 
         <!-- Mode Toggle -->
         <div class="map-mode-toggle">
