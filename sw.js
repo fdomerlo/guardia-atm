@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guardia-atm-folp-v1';
+const CACHE_NAME = 'guardia-atm-folp-v4';
 
 const PRECACHE_ASSETS = [
   './',

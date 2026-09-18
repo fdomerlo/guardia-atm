@@ -1,51 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#006155"/>
-      <stop offset="100%" stop-color="#003b33"/>
+    <!-- Paleta Institucional FOLP / UNLP - Verde Quirúrgico Profundo -->
+    <linearGradient id="bgPwa" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004434"/>
+      <stop offset="60%" stop-color="#00281e"/>
+      <stop offset="100%" stop-color="#00150f"/>
     </linearGradient>
-    <linearGradient id="jointGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#46A3B7"/>
-      <stop offset="100%" stop-color="#72c5d6"/>
-    </linearGradient>
-    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.25"/>
+
+    <!-- Sombra sutil de elevación -->
+    <filter id="dropShadowPwa" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
     </filter>
   </defs>
 
-  <!-- Background with rounded corners -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <!-- Fondo de sangrado completo (100% compatible con W3C Maskable Icon) -->
+  <rect width="512" height="512" fill="url(#bgPwa)"/>
 
-  <!-- Inner subtle border -->
-  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#46A3B7" stroke-width="4" stroke-opacity="0.3" />
+  <!-- Composición anatómica ajustada al 100% de la Safe-Zone circular (r=204.8) -->
+  <g transform="translate(47, 54) scale(2.06)" filter="url(#dropShadowPwa)">
+    <!-- Perfil Cefálico (Contorno de Cabeza y Cuello) -->
+    <path d="M 41 174 
+             C 42 165 47 155 49 143 
+             C 46 128 39 105 32 88 
+             C 29 78 29 68 33 50 
+             C 38 34 52 24 72 20 
+             C 80 18 90 18 96 18 
+             C 118 19 138 29 149 46 
+             C 155 58 155 70 154 80 
+             C 155 86 160 92 167 100 
+             C 171 105 171 108 168 111 
+             C 162 113 159 116 158 120 
+             C 158 124 157 127 157 130 
+             C 157 134 156 140 155 145 
+             C 152 151 146 153 136 153 
+             C 124 153 118 158 116 174" 
+          fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <g filter="url(#dropShadow)" transform="translate(4, 0)">
-    <!-- Stylized Mandible & Temporomandibular Articulation -->
-    <!-- Cranial Fossa Arch -->
-    <path d="M 140 180 C 180 140 240 140 280 170 C 310 192 340 190 370 170" 
-          fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round"/>
+    <!-- Mandíbula Anatómica conectando mentón y ATM -->
+    <path d="M 95.4 127.2 
+             L 95.4 138 
+             C 95.4 146 102 151 114 152 
+             L 142 153" 
+          fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- Articular Disc -->
-    <ellipse cx="280" cy="205" rx="36" ry="14" fill="url(#jointGrad)" transform="rotate(-15, 280, 205)" />
+    <!-- Ondas de Resonancia / Dolor Orofacial Izquierdas -->
+    <path d="M 77 94 A 23.5 23.5 0 0 0 77 127" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+    <path d="M 67 87 A 35.5 35.5 0 0 0 67 134" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
 
-    <!-- Condyle Head & Mandibular Ramus -->
-    <path d="M 270 230 C 290 230 305 245 305 268 C 305 320 280 370 240 395 C 205 415 160 410 140 370 C 130 350 145 330 165 330 C 190 330 220 310 245 270 C 255 255 255 240 245 230 Z" 
-          fill="#FFFFFF" />
+    <!-- Ondas de Resonancia / Dolor Orofacial Derechas -->
+    <path d="M 114 94 A 23.5 23.5 0 0 1 114 127" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
+    <path d="M 124 87 A 35.5 35.5 0 0 1 124 134" fill="none" stroke="#FFFFFF" stroke-width="4.8" stroke-linecap="round"/>
 
-    <!-- Joint Movement / Energy Waves -->
-    <path d="M 330 230 Q 360 250 340 280" fill="none" stroke="#46A3B7" stroke-width="12" stroke-linecap="round" />
-    <path d="M 360 215 Q 400 245 375 295" fill="none" stroke="#46A3B7" stroke-width="8" stroke-linecap="round" stroke-opacity="0.8" />
-
-    <!-- Emergency Cross in Corner -->
-    <g transform="translate(350, 110)">
-      <rect x="14" y="0" width="12" height="40" rx="4" fill="#E2E8F0"/>
-      <rect x="0" y="14" width="40" height="12" rx="4" fill="#E2E8F0"/>
-      <rect x="16" y="2" width="8" height="36" rx="3" fill="#DC2626"/>
-      <rect x="2" y="16" width="36" height="8" rx="3" fill="#DC2626"/>
-    </g>
+    <!-- Disco Articular ATM (Cian Institucional FOLP #46A3B7) -->
+    <circle cx="95.4" cy="110.7" r="16.5" fill="#46A3B7" stroke="none"/>
+    <circle cx="95.4" cy="110.7" r="7.8" fill="#00281e" stroke="#FFFFFF" stroke-width="3.8"/>
   </g>
-
-  <!-- Hospital Subtitle Badge -->
-  <rect x="96" y="426" width="320" height="44" rx="22" fill="#004038" />
-  <text x="256" y="454" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" fill="#46A3B7" letter-spacing="2">FOLP · GUARDIA ATM</text>
 </svg>
