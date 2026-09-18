@@ -5,7 +5,7 @@
 
 export function renderScreenHeader({ category, title, subtitle, searchInputHtml = '' }) {
   const isDark = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark';
-  
+
   return `
     <header class="screen-header" role="banner">
       <!-- Marca de agua institucional sobre-escalada con desborde y transparencia -->
@@ -16,7 +16,7 @@ export function renderScreenHeader({ category, title, subtitle, searchInputHtml 
       <div class="screen-header-inner">
         <div class="screen-header-top">
           <div class="screen-brand">
-            <span class="screen-brand-label">FOLP · UNLP</span>
+            <!-- <span class="screen-brand-label">FOLP · UNLP</span> -->
             <span class="screen-brand-sep">|</span>
             <span class="screen-brand-sub">HOSPITAL ODONTOLÓGICO</span>
           </div>

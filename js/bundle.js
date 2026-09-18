@@ -2602,7 +2602,7 @@ class PWAManager {
 
 function renderScreenHeader({ category, title, subtitle, searchInputHtml = '' }) {
   const isDark = typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark';
-  
+
   return `
     <header class="screen-header" role="banner">
       <!-- Marca de agua institucional sobre-escalada con desborde y transparencia -->
@@ -2613,7 +2613,7 @@ function renderScreenHeader({ category, title, subtitle, searchInputHtml = '' })
       <div class="screen-header-inner">
         <div class="screen-header-top">
           <div class="screen-brand">
-            <span class="screen-brand-label">FOLP · UNLP</span>
+            <!-- <span class="screen-brand-label">FOLP · UNLP</span> -->
             <span class="screen-brand-sep">|</span>
             <span class="screen-brand-sub">HOSPITAL ODONTOLÓGICO</span>
           </div>
@@ -2691,7 +2691,7 @@ class TriageModule {
             </div>
             <span class="chevron-icon" id="rfChevron">▼</span>
           </div>
-          
+
           <div class="red-flags-content is-hidden" id="rfContent">
             <p class="section-desc">Criterios de alarma clínica que exigen derivación urgente a guardia médica hospitalaria o resolución manual inmediata:</p>
             <div class="red-flags-grid">
@@ -3199,7 +3199,7 @@ class PathologiesView {
     this.modalContainer.innerHTML = `
       <div class="modal-backdrop" id="modalBackdrop">
         <div class="modal-sheet-dialog" role="dialog" aria-modal="true" aria-labelledby="modalPatTitle">
-          
+
           <!-- Top Sticky Bar -->
           <div class="modal-header">
             <div class="modal-header-info">
@@ -3221,7 +3221,7 @@ class PathologiesView {
 
           <!-- Modal Scrollable Content -->
           <div class="modal-body">
-            
+
             <!-- Resumen -->
             <div class="detail-block detail-summary-box">
               <p>${p.resumenCorto}</p>
@@ -3275,7 +3275,7 @@ class PathologiesView {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
                 Farmacoterapia de Urgencia (Huff & Benoliel 2023)
               </h3>
-              
+
               <div class="rx-group">
                 <span class="rx-sub-badge first-line">1ª LÍNEA DE ELECCIÓN</span>
                 <ul class="rx-list">
@@ -3427,7 +3427,7 @@ class DrugsView {
 
     this.container.innerHTML = `
       <section class="drugs-section">
-        
+
         <!-- Screen Header Estético con Búsqueda -->
         ${renderScreenHeader({
           category: 'Farmacoterapia de Urgencia',
@@ -3685,7 +3685,7 @@ class ProceduresView {
 
     this.container.innerHTML = `
       <section class="procedures-section">
-        
+
         <!-- Screen Header Estético -->
         ${renderScreenHeader({
           category: 'Práctica Clínica en Box',
@@ -3842,7 +3842,7 @@ class ReferralMapView {
 
     this.container.innerHTML = `
       <section class="referral-map-section">
-        
+
         <!-- Screen Header Estético -->
         ${renderScreenHeader({
           category: 'Anatomía y Dolor Referido',
@@ -3896,7 +3896,7 @@ class ReferralMapView {
 
     container.innerHTML = `
       <div class="muscle-mode-layout">
-        
+
         <!-- Muscle Pills Selector -->
         <div class="muscle-selector-chips">
           ${MUSCULOS_DOLOR.map(
@@ -3910,16 +3910,16 @@ class ReferralMapView {
 
         <!-- Anatomical Schema and Card -->
         <div class="map-visual-card">
-          
+
           <!-- Interactive Radiographic Anatomical Map Container -->
           <div class="anatomical-graphic-container">
             <div class="anatomical-stage">
               <!-- Base lateral head x-ray image -->
-              <img src="./assets/mapa-anatomico.jpg" 
-                   class="anatomical-xray-img" 
+              <img src="./assets/mapa-anatomico.jpg"
+                   class="anatomical-xray-img"
                    alt="Radiografía anatómica lateral de cráneo y cuello"
                    loading="eager">
-              
+
               <!-- SVG Layer aligned on top of the 800x800 coordinate grid -->
               <svg class="anatomical-overlay-svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Esquema radiográfico con puntos gatillo y dolor referido">
                 <defs>
@@ -3930,7 +3930,7 @@ class ReferralMapView {
                     <stop offset="70%" stop-color="#FF9100" stop-opacity="0.35"/>
                     <stop offset="100%" stop-color="#FF3D00" stop-opacity="0"/>
                   </radialGradient>
-                  
+
                   <!-- Radial gradient for active trigger point beacon -->
                   <radialGradient id="activeTriggerGlow" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stop-color="#EF4444" stop-opacity="0.95"/>
@@ -3959,11 +3959,11 @@ class ReferralMapView {
                       <circle cx="${z.x}" cy="${z.y}" r="${z.r * 0.7}" fill="#FF5722" fill-opacity="0.85" />
                       <circle cx="${z.x}" cy="${z.y}" r="3.5" fill="#FFFFFF" />
                       <!-- Mini label shadow + text -->
-                      <text x="${z.x}" y="${z.y - z.r - 4}" 
-                            text-anchor="middle" 
-                            fill="#FFFFFF" 
-                            font-size="11" 
-                            font-weight="700" 
+                      <text x="${z.x}" y="${z.y - z.r - 4}"
+                            text-anchor="middle"
+                            fill="#FFFFFF"
+                            font-size="11"
+                            font-weight="700"
                             class="zone-svg-caption">${z.label.split('(')[0].trim()}</text>
                     </g>
                   `).join('')}
@@ -3985,7 +3985,7 @@ class ReferralMapView {
                   <circle cx="0" cy="0" r="36" fill="url(#activeTriggerGlow)" class="trigger-radar-ring" />
                   <circle cx="0" cy="0" r="18" fill="#DC2626" fill-opacity="0.35" stroke="#EF4444" stroke-width="2.5" class="trigger-beacon-ring" />
                   <circle cx="0" cy="0" r="8" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5" />
-                  
+
                   <!-- Crosshair mark -->
                   <line x1="-14" y1="0" x2="-6" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
                   <line x1="6" y1="0" x2="14" y2="0" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
@@ -3994,7 +3994,7 @@ class ReferralMapView {
 
                   <!-- Label callout tag -->
                   <g class="trigger-svg-label">
-                    <rect x="14" y="-15" width="${currentMuscle.nombre.length * 8 + 26}" height="28" rx="6" 
+                    <rect x="14" y="-15" width="${currentMuscle.nombre.length * 8 + 26}" height="28" rx="6"
                           fill="rgba(10, 20, 35, 0.88)" stroke="#EF4444" stroke-width="1.8" />
                     <text x="24" y="4" fill="#FFFFFF" font-size="12" font-weight="800" font-family="system-ui, sans-serif">
                       ✕ ${currentMuscle.nombre}

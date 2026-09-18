@@ -26,7 +26,7 @@
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 20, 14, 0.4);
+  /*box-shadow: 0 4px 20px rgba(0, 20, 14, 0.4);*/
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -39,8 +39,8 @@
 /* Marca de agua institucional sobre-escalada con desborde y transparencia */
 .screen-header-watermark {
   position: absolute;
-  right: -50px;
-  bottom: -35px;
+  right: 0px;
+  bottom: 0px;
   width: 350px;
   max-width: 72vw;
   pointer-events: none;
@@ -142,9 +142,9 @@
   color: #a2e2ee;
   font-size: 0.65rem;
   font-weight: 800;
-  padding: 2px 9px;
+  padding: 5px 10px 1px;
   border-radius: var(--radius-full);
-  margin-bottom: 6px;
+  margin-bottom: 2em;
   letter-spacing: 0.6px;
   text-transform: uppercase;
 }
