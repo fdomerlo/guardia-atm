@@ -1,0 +1,37 @@
+{
+  "name": "Guardia ATM - Hospital Odontológico FOLP / UNLP",
+  "short_name": "Guardia ATM",
+  "description": "Manual clínico de triaje, diagnóstico y farmacoterapia de urgencias en ATM y dolor orofacial (Huff & Benoliel 2023) para la Guardia del Hospital de la Facultad de Odontología de la Universidad Nacional de La Plata.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#006155",
+  "theme_color": "#006155",
+  "orientation": "portrait",
+  "lang": "es-AR",
+  "categories": ["medical", "health", "education"],
+  "icons": [
+    {
+      "src": "assets/icons/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

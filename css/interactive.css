@@ -1,0 +1,1127 @@
+/**
+ * guardia-atm - Estilos Interactivos
+ * Triaje clínico, mapa de dolor referido, vademécum de guardia y búsqueda global.
+ */
+
+/* ========================================================
+ * 1. TRIAJE Y BANDERAS ROJAS
+ * ======================================================== */
+.card-red-flags {
+  border: 1px solid var(--color-urgent-border);
+  background: var(--color-surface);
+  padding: 0;
+  overflow: hidden;
+}
+
+.red-flag-header {
+  padding: 14px 16px;
+  background-color: var(--color-urgent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title-red-flags {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-urgent-dark);
+}
+
+.chevron-icon {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.red-flags-content {
+  padding: 16px;
+  background-color: var(--color-surface);
+}
+
+.section-desc {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.red-flags-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.red-flag-item {
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.rf-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.rf-title-row h4 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+.rf-cie-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--color-urgent-dark);
+}
+
+.rf-severity {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-urgent);
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+
+.rf-criteria-list {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.rf-criteria-list li {
+  margin-bottom: 2px;
+}
+
+.rf-action-box {
+  background: var(--color-urgent-bg);
+  border: 1px solid var(--color-urgent-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  color: var(--color-urgent-dark);
+}
+
+.rf-action-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+
+.rf-action-box ul {
+  padding-left: 16px;
+}
+
+.hospital-contact-box {
+  margin-top: 14px;
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-size: 0.82rem;
+  color: var(--color-primary-dark);
+}
+
+.hospital-contact-box h4 {
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hospital-contact-box ul {
+  padding-left: 16px;
+}
+
+/* Asistente Interactivo de Triaje */
+.triage-assistant-card {
+  border-top: 4px solid var(--color-primary);
+}
+
+.assistant-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.assistant-icon-wrap {
+  background: var(--color-primary-soft);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.assistant-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1.2;
+}
+
+.assistant-subtitle {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.triage-question-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-back-step {
+  background: none;
+  border: none;
+  color: var(--color-accent-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 2px 0;
+}
+
+.triage-question-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.35;
+}
+
+.triage-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.triage-option-btn {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  min-height: 52px;
+}
+
+.triage-option-btn:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+.triage-option-btn.is-red-flag {
+  border-left: 4px solid var(--color-urgent);
+  background-color: var(--color-urgent-bg);
+}
+
+.opt-text-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.opt-bullet {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.opt-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.3;
+}
+
+.chip-alert {
+  background-color: var(--color-urgent);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.opt-arrow {
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+/* Resultado del Triaje */
+.triage-result-card {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.25s ease;
+}
+
+.triage-result-card.is-red-flag-result {
+  border-color: var(--color-urgent);
+  background-color: var(--color-urgent-bg);
+}
+
+.result-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge-result-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.4px;
+}
+
+.result-pathology-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1.25;
+}
+
+.result-summary {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.result-action-section h4, .result-drug-section h4 {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.result-action-section ul, .result-drug-section ul {
+  padding-left: 18px;
+  font-size: 0.84rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.result-actions-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ========================================================
+ * 2. VADEMÉCUM Y VERIFICADOR DE SEGURIDAD
+ * ======================================================== */
+.drugs-header-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.drugs-header-text h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.drugs-header-text p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.safety-checker-card {
+  border-left: 4px solid var(--color-accent);
+  padding: 0;
+  overflow: hidden;
+}
+
+.safety-checker-header {
+  padding: 12px 16px;
+  background-color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.sch-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.safety-shield-icon {
+  font-size: 1.3rem;
+}
+
+.sch-left h3 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--color-accent-dark);
+}
+
+.sch-left p {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+.safety-checker-body {
+  padding: 14px 16px;
+  background-color: var(--color-surface);
+}
+
+.risk-checkboxes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .risk-checkboxes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.risk-chk-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.safety-advice-box {
+  background-color: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.safety-tips-list {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Tarjeta de Fármaco */
+.drugs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drug-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drug-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.drug-group-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.drug-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+.drug-presentation {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.drug-dose-block {
+  background-color: var(--color-surface-hover);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dose-row {
+  font-size: 0.85rem;
+}
+
+.dose-label {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.dose-value {
+  color: var(--color-text-main);
+}
+
+.dose-sub-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.drug-indications-block h4, .drug-risks-accordion h4 {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.drug-indications-block ul {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.risks-chips-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.risk-chip {
+  font-size: 0.76rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  line-height: 1.35;
+}
+
+.risk-chip.gi { background: #fef2f2; color: #991b1b; }
+.risk-chip.cv { background: #fff7ed; color: #9a3412; }
+.risk-chip.renal { background: #f0fdf4; color: #166534; }
+.risk-chip.hepatic { background: #fefce8; color: #854d0e; }
+.risk-chip.snc { background: #f5f3ff; color: #5b21b6; }
+.risk-chip.hemato { background: #fdf2f8; color: #9d174d; }
+
+.drug-pearl-footer {
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  color: var(--color-primary-dark);
+}
+
+.pearl-badge-mini {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ========================================================
+ * 3. PROCEDIMIENTOS Y MANIOBRAS
+ * ======================================================== */
+.procedures-tab-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.proc-tab-btn {
+  flex: 1;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.proc-tab-btn.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.procedure-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.proc-card-header {
+  margin-bottom: 12px;
+}
+
+.proc-cat-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-accent-dark);
+  text-transform: uppercase;
+}
+
+.proc-time-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-left: 8px;
+}
+
+.proc-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin: 4px 0 6px 0;
+}
+
+.proc-card-indicacion {
+  font-size: 0.84rem;
+  color: var(--color-text-secondary);
+}
+
+.proc-materials-box {
+  background-color: var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.proc-materials-box h4 {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.proc-materials-box ul {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.proc-steps-timeline h4 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-step-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-number-circle {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-content h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 2px;
+}
+
+.step-content p {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.proc-footer-tips {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proc-alert-warn {
+  background: var(--color-urgent-bg);
+  border-left: 3px solid var(--color-urgent);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--color-urgent-dark);
+}
+
+.proc-pearl-tip {
+  background: var(--color-primary-soft);
+  border-left: 3px solid var(--color-primary);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--color-primary-dark);
+}
+
+/* Laboratorio */
+.lab-intro-banner {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.lab-intro-banner h3 {
+  font-size: 0.98rem;
+  color: var(--color-primary);
+}
+
+.lab-intro-banner p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.lab-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lab-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.lab-cat-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-accent-dark);
+  text-transform: uppercase;
+}
+
+.lab-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.lab-row {
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  color: var(--color-text-secondary);
+}
+
+.lab-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.lab-interp-box {
+  background: var(--color-surface-hover);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-accent);
+}
+
+/* ========================================================
+ * 4. MAPA DE DOLOR REFERIDO
+ * ======================================================== */
+.map-intro-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.map-intro-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.map-intro-card p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.map-mode-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.map-toggle-btn {
+  flex: 1;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 9px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.map-toggle-btn.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.muscle-selector-chips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.muscle-selector-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.muscle-chip {
+  white-space: nowrap;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+.muscle-chip.active {
+  background-color: var(--color-accent-dark);
+  color: #ffffff;
+  border-color: var(--color-accent-dark);
+}
+
+.map-visual-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.svg-diagram-wrapper {
+  background-color: var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.head-anatomy-svg {
+  max-width: 260px;
+  height: auto;
+}
+
+.svg-caption {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.muscle-group-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-accent-dark);
+  text-transform: uppercase;
+}
+
+.muscle-name-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin-bottom: 10px;
+}
+
+.muscle-info-row {
+  margin-bottom: 10px;
+}
+
+.muscle-info-row h4 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.muscle-info-row p {
+  font-size: 0.84rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.referral-target-box {
+  background: var(--color-warning-bg);
+  border-left: 3px solid var(--color-warning);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.referral-target-box h4 {
+  color: var(--color-warning-dark);
+}
+
+.referral-target-box ul {
+  padding-left: 18px;
+  font-size: 0.84rem;
+  color: var(--color-warning-dark);
+}
+
+.tooth-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tooth-referral-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.tooth-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.tooth-icon {
+  font-size: 1.4rem;
+}
+
+.tooth-card-header h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+.tooth-culprit {
+  font-size: 0.78rem;
+  color: var(--color-primary);
+}
+
+.tooth-card-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.btn-goto-muscle {
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+/* ========================================================
+ * 5. BÚSQUEDA GLOBAL FULLSCREEN OVERLAY
+ * ======================================================== */
+.global-search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-bg);
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.15s ease;
+}
+
+.search-top-bar {
+  background-color: var(--color-primary);
+  padding: calc(var(--safe-top) + 8px) 12px 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-top-bar input {
+  flex: 1;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 0.92rem;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+}
+
+.btn-search-cancel {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.search-results-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-hint {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-top: 30px;
+}
+
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-result-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-result-item:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-surface-hover);
+  transform: translateX(2px);
+}
+
+.sr-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.sr-type-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.sr-type-tag.patologia { background: var(--color-primary-soft); color: var(--color-primary-dark); }
+.sr-type-tag.farmaco { background: var(--color-accent-soft); color: var(--color-accent-dark); }
+.sr-type-tag.procedimiento { background: #fef3c7; color: #92400e; }
+.sr-type-tag.musculo { background: #ede9fe; color: #5b21b6; }
+.sr-type-tag.bandera_roja { background: var(--color-urgent-bg); color: var(--color-urgent); }
+
+.sr-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.sr-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
