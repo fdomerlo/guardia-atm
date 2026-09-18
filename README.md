@@ -12,7 +12,7 @@ Basada íntegramente en el manual clínico internacional de referencia:
 - **100% Mobile-First y Ergonómica:** Diseñada específicamente para uso ágil con una sola mano en el sillón odontológico o box de guardia.
 - **100% Offline-First:** Equipada con Service Worker nativo y Cache API. Funciona sin señal de internet ni consumo de datos en subsuelos y quirófanos.
 - **Identidad Institucional FOLP / UNLP:**
-  - Color Primario Institucional: `#006155` (Verde FOLP)
+  - Color Primario Institucional: `#003326` (Verde Bosque Sobrio FOLP)
   - Color de Acento: `#46A3B7` (Celeste/Turquesa FOLP)
   - Modo Noche / Oscuro de alto contraste para guardias nocturnas.
 - **Triaje y Banderas Rojas (Red Flags):**
@@ -58,6 +58,21 @@ npx serve .
 ```
 
 ---
+
+## 🌐 Despliegue en GitHub Pages (100% Listo)
+
+La aplicación está completamente preparada para desplegarse como sitio estático y PWA en **GitHub Pages**:
+
+1. En GitHub, ve a tu repositorio: `https://github.com/fdomerlo/guardia-atm`.
+2. Dirígete a **Settings** > **Pages** (en el menú lateral izquierdo).
+3. En **Build and deployment**:
+   - **Source:** `Deploy from a branch`
+   - **Branch:** Selecciona `master` (o la rama que desees) y carpeta `/ (root)`.
+   - Clic en **Save**.
+4. En 1 o 2 minutos, GitHub publicará la app en:
+   **`https://fdomerlo.github.io/guardia-atm/`**
+
+> **Nota:** El archivo `.nojekyll` ya está incluido en la raíz para evitar interferencias de Jekyll y garantizar la entrega nativa del Service Worker (`sw.js`) y del manifiesto PWA (`manifest.webmanifest`).
 
 ## 📲 Cómo Instalar en el Celular (PWA)
 
