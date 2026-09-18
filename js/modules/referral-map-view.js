@@ -30,17 +30,18 @@ export class ReferralMapView {
           subtitle: 'Mapeo interactivo de puntos gatillo, patrones de irradiación orofacial y odontalgia referida (Huff & Benoliel 2023).'
         })}
 
-        <!-- Mode Toggle -->
-        <div class="map-mode-toggle">
-          <button class="map-toggle-btn active" id="btnModeMuscle">Por Músculo Masticador</button>
-          <button class="map-toggle-btn" id="btnModeTooth">¿Qué Diente Duele? (Buscador Inverso)</button>
-        </div>
+        <div class="screen-body">
+          <!-- Mode Toggle -->
+          <div class="map-mode-toggle">
+            <button class="map-toggle-btn active" id="btnModeMuscle">Por Músculo Masticador</button>
+            <button class="map-toggle-btn" id="btnModeTooth">¿Qué Diente Duele? (Buscador Inverso)</button>
+          </div>
 
-        <!-- Container for View Modes -->
-        <div id="mapModeContainer">
-          <!-- Rendered dynamically -->
+          <!-- Container for View Modes -->
+          <div id="mapModeContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
-
       </section>
     `;
 

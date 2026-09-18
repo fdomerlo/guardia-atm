@@ -14,84 +14,108 @@
 }
 
 /* ========================================================
- * SCREEN HEADERS ESTÉTICOS (SISTEMA DE ENCABEZADOS DE PANTALLA)
+/* ========================================================
+ * SCREEN HEADERS ESTÉTICOS (MODERNOS, SOBRIOS Y FULL BLEED)
  * ======================================================== */
 .screen-header {
-  background: linear-gradient(135deg, #004d43 0%, var(--color-primary) 50%, #1a6b7a 100%);
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  padding: calc(var(--safe-top) + 16px) 16px 22px 16px;
+  background: linear-gradient(135deg, #001f17 0%, var(--color-primary) 55%, #004433 100%);
   color: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px rgba(0, 77, 67, 0.28);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 20, 14, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="dark"] .screen-header {
-  background: linear-gradient(135deg, #061e1b 0%, #0c332d 50%, #123d47 100%);
-  border: 1px solid rgba(70, 163, 183, 0.22);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(135deg, #00120d 0%, #002219 55%, #003326 100%);
+  border-bottom: 1px solid rgba(70, 163, 183, 0.18);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
-.screen-header::after {
-  content: '';
+/* Marca de agua institucional sobre-escalada con desborde y transparencia */
+.screen-header-watermark {
   position: absolute;
-  right: -25px;
-  bottom: -25px;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(70, 163, 183, 0.2) 0%, transparent 70%);
+  right: -50px;
+  bottom: -35px;
+  width: 350px;
+  max-width: 72vw;
   pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  opacity: 0.10;
+  transform: rotate(-3deg) scale(1.18);
+  transform-origin: bottom right;
+}
+
+[data-theme="dark"] .screen-header-watermark {
+  opacity: 0.07;
+}
+
+.header-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.screen-header-inner {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .screen-header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 14px;
 }
 
 .screen-brand {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.screen-brand-logo {
-  height: 28px;
-  width: auto;
-  max-width: 130px;
-  display: block;
-}
-
-.screen-brand-badge {
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(4px);
-  color: #e6f7f6;
-  font-size: 0.62rem;
+.screen-brand-label {
   font-weight: 800;
-  padding: 2px 7px;
-  border-radius: var(--radius-full);
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.8px;
+}
+
+.screen-brand-sep {
+  opacity: 0.4;
+}
+
+.screen-brand-sub {
+  font-size: 0.65rem;
+  color: var(--color-accent-light);
+  letter-spacing: 0.4px;
 }
 
 .screen-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .screen-action-btn {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
   color: #ffffff;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
@@ -102,23 +126,23 @@
 }
 
 .screen-action-btn:hover, .screen-action-btn:focus-visible {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.25);
   transform: scale(1.06);
   outline: none;
 }
 
 .screen-header-content {
-  position: relative;
-  z-index: 2;
+  margin-top: 2px;
 }
 
 .screen-category-badge {
   display: inline-block;
-  background: var(--color-accent);
-  color: #ffffff;
+  background: rgba(70, 163, 183, 0.25);
+  border: 1px solid rgba(70, 163, 183, 0.45);
+  color: #a2e2ee;
   font-size: 0.65rem;
   font-weight: 800;
-  padding: 2px 8px;
+  padding: 2px 9px;
   border-radius: var(--radius-full);
   margin-bottom: 6px;
   letter-spacing: 0.6px;
@@ -126,25 +150,25 @@
 }
 
 .screen-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.2;
   color: #ffffff;
   margin-bottom: 4px;
+  letter-spacing: -0.2px;
 }
 
 .screen-subtitle {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.4;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.42;
   margin-bottom: 0;
+  max-width: 580px;
 }
 
 /* Screen search bar inside header */
 .screen-search-box {
-  margin-top: 12px;
-  position: relative;
-  z-index: 2;
+  margin-top: 14px;
 }
 
 .screen-search-box .search-input-wrap {
@@ -154,17 +178,17 @@
   background: rgba(255, 255, 255, 0.96);
   border-radius: var(--radius-md);
   padding: 0 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] .screen-search-box .search-input-wrap {
-  background: #192738;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #11202e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .screen-search-box input {
   width: 100%;
-  height: 40px;
+  height: 42px;
   border: none;
   background: transparent;
   padding-left: 8px;
@@ -179,6 +203,14 @@
 
 .screen-search-box input::placeholder {
   color: #64748b;
+}
+
+/* Screen body container for the rest of the application */
+.screen-body {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 12px 14px 12px;
 }
 
 /* Banner Institucional Superior (Legacy) */

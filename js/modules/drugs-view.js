@@ -49,55 +49,57 @@ export class DrugsView {
           searchInputHtml: searchHtml
         })}
 
-        <!-- Quick Safety Checker Widget -->
-        <div class="card safety-checker-card">
-          <div class="safety-checker-header" id="safetyCheckerToggle" role="button" tabindex="0">
-            <div class="sch-left">
-              <span class="safety-shield-icon">🛡️</span>
-              <div>
-                <h3>Verificador de Seguridad y Contraindicaciones</h3>
-                <p>Seleccionar comorbilidades del paciente para filtrar fármacos seguros</p>
+        <div class="screen-body">
+          <!-- Quick Safety Checker Widget -->
+          <div class="card safety-checker-card">
+            <div class="safety-checker-header" id="safetyCheckerToggle" role="button" tabindex="0">
+              <div class="sch-left">
+                <span class="safety-shield-icon">🛡️</span>
+                <div>
+                  <h3>Verificador de Seguridad y Contraindicaciones</h3>
+                  <p>Seleccionar comorbilidades del paciente para filtrar fármacos seguros</p>
+                </div>
+              </div>
+              <span class="chevron-icon" id="schChevron">▼</span>
+            </div>
+
+            <div class="safety-checker-body is-hidden" id="safetyCheckerBody">
+              <div class="risk-checkboxes-grid">
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkGastritis"> Gastritis / Úlcera previa
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
+                </label>
+              </div>
+
+              <div class="safety-advice-box" id="safetyAdviceBox">
+                <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
               </div>
             </div>
-            <span class="chevron-icon" id="schChevron">▼</span>
           </div>
 
-          <div class="safety-checker-body is-hidden" id="safetyCheckerBody">
-            <div class="risk-checkboxes-grid">
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkGastritis"> Gastritis / Úlcera previa
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
-              </label>
-            </div>
-
-            <div class="safety-advice-box" id="safetyAdviceBox">
-              <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
-            </div>
+          <!-- Groups Filter Bar -->
+          <div class="filter-pills-bar" id="drugGroupPills">
+            <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
+            ${GRUPOS_FARMACOS.map(
+              (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
+            ).join('')}
           </div>
-        </div>
 
-        <!-- Groups Filter Bar -->
-        <div class="filter-pills-bar" id="drugGroupPills">
-          <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
-          ${GRUPOS_FARMACOS.map(
-            (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
-          ).join('')}
-        </div>
-
-        <!-- Drugs Grid -->
-        <div class="drugs-grid" id="drugsListContainer">
-          <!-- Rendered dynamically -->
+          <!-- Drugs Grid -->
+          <div class="drugs-grid" id="drugsListContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
       </section>
     `;

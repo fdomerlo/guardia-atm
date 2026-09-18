@@ -57,22 +57,24 @@ export class PathologiesView {
           searchInputHtml: searchHtml
         })}
 
-        <!-- Filter Pills Scrollable Bar -->
-        <div class="filter-pills-bar" id="categoryFilterBar">
-          <!-- Rendered dynamically -->
-        </div>
+        <div class="screen-body">
+          <!-- Filter Pills Scrollable Bar -->
+          <div class="filter-pills-bar" id="categoryFilterBar">
+            <!-- Rendered dynamically -->
+          </div>
 
-        <!-- Counter and Quick Filter row -->
-        <div class="list-meta-row">
-          <span id="pathologyCount" class="count-badge">Cargando patologías...</span>
-          <button class="btn-text-filter ${this.activeFilter === 'urgencias' ? 'active' : ''}" id="btnFilterUrgencias">
-            ⚡ Solo Urgencias de Guardia
-          </button>
-        </div>
+          <!-- Counter and Quick Filter row -->
+          <div class="list-meta-row">
+            <span id="pathologyCount" class="count-badge">Cargando patologías...</span>
+            <button class="btn-text-filter ${this.activeFilter === 'urgencias' ? 'active' : ''}" id="btnFilterUrgencias">
+              ⚡ Solo Urgencias de Guardia
+            </button>
+          </div>
 
-        <!-- Pathologies Cards Grid -->
-        <div class="pathologies-grid" id="pathologiesListContainer">
-          <!-- Rendered dynamically -->
+          <!-- Pathologies Cards Grid -->
+          <div class="pathologies-grid" id="pathologiesListContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
       </section>
     `;

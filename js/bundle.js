@@ -2605,35 +2605,43 @@ function renderScreenHeader({ category, title, subtitle, searchInputHtml = '' })
   
   return `
     <header class="screen-header" role="banner">
-      <div class="screen-header-top">
-        <div class="screen-brand">
-          <img src="./assets/folp-logo.svg" alt="FOLP UNLP" class="screen-brand-logo" width="130" height="30" />
-          <span class="screen-brand-badge">HOSPITAL</span>
-        </div>
-        <div class="screen-actions">
-          <button class="screen-action-btn btn-open-search" aria-label="Buscador global" title="Búsqueda global (patologías, síntomas, fármacos)">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </button>
-          <button class="screen-action-btn btn-toggle-theme" aria-label="Cambiar modo oscuro/claro" title="Cambiar tema">
-            ${isDark ? '☀️' : '🌙'}
-          </button>
-          <button class="screen-action-btn btn-open-info" aria-label="Información institucional" title="Información y Guía">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-          </button>
-        </div>
+      <!-- Marca de agua institucional sobre-escalada con desborde y transparencia -->
+      <div class="screen-header-watermark" aria-hidden="true">
+        <img src="./assets/logo-folp-watermark.png" alt="" class="header-watermark-img" loading="eager" />
       </div>
-      <div class="screen-header-content">
-        <span class="screen-category-badge">${category}</span>
-        <h1 class="screen-title">${title}</h1>
-        <p class="screen-subtitle">${subtitle}</p>
-        ${searchInputHtml ? `<div class="screen-search-box">${searchInputHtml}</div>` : ''}
+
+      <div class="screen-header-inner">
+        <div class="screen-header-top">
+          <div class="screen-brand">
+            <span class="screen-brand-label">FOLP · UNLP</span>
+            <span class="screen-brand-sep">|</span>
+            <span class="screen-brand-sub">HOSPITAL ODONTOLÓGICO</span>
+          </div>
+          <div class="screen-actions">
+            <button class="screen-action-btn btn-open-search" aria-label="Buscador global" title="Búsqueda global (patologías, síntomas, fármacos)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <button class="screen-action-btn btn-toggle-theme" aria-label="Cambiar modo oscuro/claro" title="Cambiar tema">
+              ${isDark ? '☀️' : '🌙'}
+            </button>
+            <button class="screen-action-btn btn-open-info" aria-label="Información institucional" title="Información y Guía">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="screen-header-content">
+          <span class="screen-category-badge">${category}</span>
+          <h1 class="screen-title">${title}</h1>
+          <p class="screen-subtitle">${subtitle}</p>
+          ${searchInputHtml ? `<div class="screen-search-box">${searchInputHtml}</div>` : ''}
+        </div>
       </div>
     </header>
   `;
@@ -2673,8 +2681,9 @@ class TriageModule {
           subtitle: 'Evaluación rápida de dolor articular, muscular y criterios de derivación médica urgente (Huff & Benoliel 2023).'
         })}
 
-        <!-- Banderas Rojas Accordion / Alert Banner -->
-        <div class="card card-red-flags" id="redFlagsAccordion">
+        <div class="screen-body">
+          <!-- Banderas Rojas Accordion / Alert Banner -->
+          <div class="card card-red-flags" id="redFlagsAccordion">
           <div class="card-header red-flag-header" id="redFlagsToggle" role="button" tabindex="0" aria-expanded="false">
             <div class="header-left">
               <span class="badge-alert-pulse">CRÍTICO</span>
@@ -2738,6 +2747,7 @@ class TriageModule {
           <div id="triageQuestionContainer" class="triage-question-box">
             <!-- Rendered dynamically -->
           </div>
+        </div>
         </div>
       </section>
     `;
@@ -2953,22 +2963,24 @@ class PathologiesView {
           searchInputHtml: searchHtml
         })}
 
-        <!-- Filter Pills Scrollable Bar -->
-        <div class="filter-pills-bar" id="categoryFilterBar">
-          <!-- Rendered dynamically -->
-        </div>
+        <div class="screen-body">
+          <!-- Filter Pills Scrollable Bar -->
+          <div class="filter-pills-bar" id="categoryFilterBar">
+            <!-- Rendered dynamically -->
+          </div>
 
-        <!-- Counter and Quick Filter row -->
-        <div class="list-meta-row">
-          <span id="pathologyCount" class="count-badge">Cargando patologías...</span>
-          <button class="btn-text-filter ${this.activeFilter === 'urgencias' ? 'active' : ''}" id="btnFilterUrgencias">
-            ⚡ Solo Urgencias de Guardia
-          </button>
-        </div>
+          <!-- Counter and Quick Filter row -->
+          <div class="list-meta-row">
+            <span id="pathologyCount" class="count-badge">Cargando patologías...</span>
+            <button class="btn-text-filter ${this.activeFilter === 'urgencias' ? 'active' : ''}" id="btnFilterUrgencias">
+              ⚡ Solo Urgencias de Guardia
+            </button>
+          </div>
 
-        <!-- Pathologies Cards Grid -->
-        <div class="pathologies-grid" id="pathologiesListContainer">
-          <!-- Rendered dynamically -->
+          <!-- Pathologies Cards Grid -->
+          <div class="pathologies-grid" id="pathologiesListContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
       </section>
     `;
@@ -3424,55 +3436,57 @@ class DrugsView {
           searchInputHtml: searchHtml
         })}
 
-        <!-- Quick Safety Checker Widget -->
-        <div class="card safety-checker-card">
-          <div class="safety-checker-header" id="safetyCheckerToggle" role="button" tabindex="0">
-            <div class="sch-left">
-              <span class="safety-shield-icon">🛡️</span>
-              <div>
-                <h3>Verificador de Seguridad y Contraindicaciones</h3>
-                <p>Seleccionar comorbilidades del paciente para filtrar fármacos seguros</p>
+        <div class="screen-body">
+          <!-- Quick Safety Checker Widget -->
+          <div class="card safety-checker-card">
+            <div class="safety-checker-header" id="safetyCheckerToggle" role="button" tabindex="0">
+              <div class="sch-left">
+                <span class="safety-shield-icon">🛡️</span>
+                <div>
+                  <h3>Verificador de Seguridad y Contraindicaciones</h3>
+                  <p>Seleccionar comorbilidades del paciente para filtrar fármacos seguros</p>
+                </div>
+              </div>
+              <span class="chevron-icon" id="schChevron">▼</span>
+            </div>
+
+            <div class="safety-checker-body is-hidden" id="safetyCheckerBody">
+              <div class="risk-checkboxes-grid">
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkGastritis"> Gastritis / Úlcera previa
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
+                </label>
+                <label class="risk-chk-label">
+                  <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
+                </label>
+              </div>
+
+              <div class="safety-advice-box" id="safetyAdviceBox">
+                <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
               </div>
             </div>
-            <span class="chevron-icon" id="schChevron">▼</span>
           </div>
 
-          <div class="safety-checker-body is-hidden" id="safetyCheckerBody">
-            <div class="risk-checkboxes-grid">
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkGastritis"> Gastritis / Úlcera previa
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkCardiac"> Cardiopatía / HTA severa
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkRenal"> Enfermedad Renal Crónica
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkElderly"> Adulto Mayor (>65 años)
-              </label>
-              <label class="risk-chk-label">
-                <input type="checkbox" id="chkPregnant"> Embarazo / Lactancia
-              </label>
-            </div>
-
-            <div class="safety-advice-box" id="safetyAdviceBox">
-              <strong>Guía Rápida:</strong> Marca las condiciones del paciente para descartar AINEs o analgésicos de riesgo.
-            </div>
+          <!-- Groups Filter Bar -->
+          <div class="filter-pills-bar" id="drugGroupPills">
+            <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
+            ${GRUPOS_FARMACOS.map(
+              (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
+            ).join('')}
           </div>
-        </div>
 
-        <!-- Groups Filter Bar -->
-        <div class="filter-pills-bar" id="drugGroupPills">
-          <button class="filter-pill active" data-group="todos">Todos los Fármacos</button>
-          ${GRUPOS_FARMACOS.map(
-            (g) => `<button class="filter-pill" data-group="${g.id}">${g.nombre.split(' (')[0]}</button>`
-          ).join('')}
-        </div>
-
-        <!-- Drugs Grid -->
-        <div class="drugs-grid" id="drugsListContainer">
-          <!-- Rendered dynamically -->
+          <!-- Drugs Grid -->
+          <div class="drugs-grid" id="drugsListContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
       </section>
     `;
@@ -3679,20 +3693,21 @@ class ProceduresView {
           subtitle: 'Técnicas de reducción articular, bloqueo anestésico diagnóstico e interpretación de reactantes (PCR/VSG).'
         })}
 
-        <!-- Tab Bar -->
-        <div class="procedures-tab-bar">
-          <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">
-            💉 Maniobras e Infiltraciones
-          </button>
-          <button class="proc-tab-btn ${this.activeTab === 'laboratorio' ? 'active' : ''}" data-tab="laboratorio">
-            🧪 Pruebas de Laboratorio
-          </button>
-        </div>
+        <div class="screen-body">
+          <!-- Tab Bar -->
+          <div class="procedures-tab-bar">
+            <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">
+              💉 Maniobras e Infiltraciones
+            </button>
+            <button class="proc-tab-btn ${this.activeTab === 'laboratorio' ? 'active' : ''}" data-tab="laboratorio">
+              🧪 Pruebas de Laboratorio
+            </button>
+          </div>
 
-        <div id="proceduresTabContent">
-          <!-- Rendered dynamically -->
+          <div id="proceduresTabContent">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
-
       </section>
     `;
 
@@ -3835,17 +3850,18 @@ class ReferralMapView {
           subtitle: 'Mapeo interactivo de puntos gatillo, patrones de irradiación orofacial y odontalgia referida (Huff & Benoliel 2023).'
         })}
 
-        <!-- Mode Toggle -->
-        <div class="map-mode-toggle">
-          <button class="map-toggle-btn active" id="btnModeMuscle">Por Músculo Masticador</button>
-          <button class="map-toggle-btn" id="btnModeTooth">¿Qué Diente Duele? (Buscador Inverso)</button>
-        </div>
+        <div class="screen-body">
+          <!-- Mode Toggle -->
+          <div class="map-mode-toggle">
+            <button class="map-toggle-btn active" id="btnModeMuscle">Por Músculo Masticador</button>
+            <button class="map-toggle-btn" id="btnModeTooth">¿Qué Diente Duele? (Buscador Inverso)</button>
+          </div>
 
-        <!-- Container for View Modes -->
-        <div id="mapModeContainer">
-          <!-- Rendered dynamically -->
+          <!-- Container for View Modes -->
+          <div id="mapModeContainer">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
-
       </section>
     `;
 

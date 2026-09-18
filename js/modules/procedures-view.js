@@ -30,20 +30,21 @@ export class ProceduresView {
           subtitle: 'Técnicas de reducción articular, bloqueo anestésico diagnóstico e interpretación de reactantes (PCR/VSG).'
         })}
 
-        <!-- Tab Bar -->
-        <div class="procedures-tab-bar">
-          <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">
-            💉 Maniobras e Infiltraciones
-          </button>
-          <button class="proc-tab-btn ${this.activeTab === 'laboratorio' ? 'active' : ''}" data-tab="laboratorio">
-            🧪 Pruebas de Laboratorio
-          </button>
-        </div>
+        <div class="screen-body">
+          <!-- Tab Bar -->
+          <div class="procedures-tab-bar">
+            <button class="proc-tab-btn ${this.activeTab === 'maniobras' ? 'active' : ''}" data-tab="maniobras">
+              💉 Maniobras e Infiltraciones
+            </button>
+            <button class="proc-tab-btn ${this.activeTab === 'laboratorio' ? 'active' : ''}" data-tab="laboratorio">
+              🧪 Pruebas de Laboratorio
+            </button>
+          </div>
 
-        <div id="proceduresTabContent">
-          <!-- Rendered dynamically -->
+          <div id="proceduresTabContent">
+            <!-- Rendered dynamically -->
+          </div>
         </div>
-
       </section>
     `;
 

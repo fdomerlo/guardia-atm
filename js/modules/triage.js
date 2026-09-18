@@ -32,8 +32,9 @@ export class TriageModule {
           subtitle: 'Evaluación rápida de dolor articular, muscular y criterios de derivación médica urgente (Huff & Benoliel 2023).'
         })}
 
-        <!-- Banderas Rojas Accordion / Alert Banner -->
-        <div class="card card-red-flags" id="redFlagsAccordion">
+        <div class="screen-body">
+          <!-- Banderas Rojas Accordion / Alert Banner -->
+          <div class="card card-red-flags" id="redFlagsAccordion">
           <div class="card-header red-flag-header" id="redFlagsToggle" role="button" tabindex="0" aria-expanded="false">
             <div class="header-left">
               <span class="badge-alert-pulse">CRÍTICO</span>
@@ -97,6 +98,7 @@ export class TriageModule {
           <div id="triageQuestionContainer" class="triage-question-box">
             <!-- Rendered dynamically -->
           </div>
+        </div>
         </div>
       </section>
     `;
